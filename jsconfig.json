@@ -6,7 +6,8 @@
       "@components/*": ["src/components/*"],
       "@theme/*": ["src/theme/*"],
       "@utils/*": ["src/utils/*"],
-      "@recoil/*": ["src/recoil/*"]
+      "@recoil/*": ["src/recoil/*"],
+      "@blockView/*": ["src/components/BlockView/*"]
     }
   }
 }
