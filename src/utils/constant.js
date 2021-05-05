@@ -7,3 +7,5 @@ export const VIEW_MODE = {
   BLOCK: 'BLOCK',
   LIST: 'LIST',
 };
+
+export const NEWS_URL = 'http://localhost:4000/news';

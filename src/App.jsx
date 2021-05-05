@@ -1,11 +1,18 @@
-import Header from '@components/Header';
+import React from 'react';
 import styled from 'styled-components';
 
+import Header from '@components/Header';
+import BlockList from '@blockView/BlockList';
+
 function App() {
+  const loadingComponent = <div>loading...</div>;
+
   return (
     <NewsStandWrapper>
       <Header />
-      <h1>Hello React</h1>
+      <React.Suspense fallback={loadingComponent}>
+        <BlockList />
+      </React.Suspense>
     </NewsStandWrapper>
   );
 }
