@@ -13,14 +13,33 @@ export const viewModeState = atom({
   default: VIEW_MODE.BLOCK,
 });
 
+// ??
+export const myNewsState = atom({
+  key: 'myNewsState',
+  default: [],
+});
+
 export const newsState = selector({
   key: 'newsState',
-  get: async () => {
+  get: async ({ get }) => {
     try {
-      const newList = await getNews();
-      return newList;
+      const newsList = await getNews();
+      const myNews = get(myNewsState);
+
+      const subscribeNews = (news) => {
+        return myNews.includes(news.id)
+          ? { ...news, subscribe: true }
+          : { ...news, subscribe: false };
+      };
+
+      return newsList.map(subscribeNews);
     } catch (error) {
       console.error(`NEWS LIST GET ERROR: ${error}`);
     }
   },
 });
+
+// const subscribeNews = (news) => {
+//   console.log(myNews, news);
+//   return myNews.includes(news) ? { ...news, subscribe: true } : { ...news, subscribe: false };
+// };

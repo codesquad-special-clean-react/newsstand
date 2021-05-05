@@ -6,7 +6,6 @@ import BlockItem from '@blockView/BlockItem';
 
 const BlockList = () => {
   const newsList = useRecoilValue(newsState);
-  //   console.log(newsList);
   const NewsList = (
     <ul>
       {newsList.map((news) => (

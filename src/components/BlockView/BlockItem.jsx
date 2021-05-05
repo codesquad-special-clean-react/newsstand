@@ -10,7 +10,13 @@ const BlockItem = ({ news }) => {
   const onLeave = () => setItemHover(false);
 
   const ItemView = (
-    <div>{itemHover ? <HoverItem /> : <img src={news.logoImgUrl} alt={news.company} />}</div>
+    <div>
+      {itemHover ? (
+        <HoverItem newsId={news.id} subscribe={news.subscribe} />
+      ) : (
+        <img src={news.logoImgUrl} alt={news.company} />
+      )}
+    </div>
   );
 
   return (

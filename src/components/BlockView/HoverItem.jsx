@@ -1,9 +1,21 @@
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-const HoverItem = () => {
+import { myNewsState } from '@recoil/state';
+
+const HoverItem = ({ newsId, subscribe }) => {
+  const [myNews, setMyNews] = useRecoilState(myNewsState);
+
+  const onSubscribe = () => setMyNews(myNews.concat(newsId));
+  const onUnsubscribe = () => setMyNews(myNews.filter((id) => id !== newsId));
+
   return (
     <HoverItemWrapper>
-      <button>구독</button>
+      {subscribe ? (
+        <button onClick={onUnsubscribe}>해지</button>
+      ) : (
+        <button onClick={onSubscribe}>구독</button>
+      )}
       <button>기사보기</button>
     </HoverItemWrapper>
   );

@@ -28,7 +28,7 @@ const Header = () => {
         </MenuGroup>
       </LeftWrapper>
       <RightWrapper>
-        <ViewModeGroup>
+        <ViewModeGroup visible={menu === MENU.MY_NEWS ? 'true' : ''}>
           <BoxMode
             active={viewMode === VIEW_MODE.BLOCK ? 'true' : ''}
             onClick={onClickViewMode(VIEW_MODE.BLOCK)}
@@ -96,6 +96,7 @@ const RightWrapper = styled.div`
 `;
 
 const ViewModeGroup = styled.div`
+  visibility: hidden;
   align-self: center;
   font-size: 2em;
 
@@ -103,6 +104,12 @@ const ViewModeGroup = styled.div`
     margin-left: 1em;
     cursor: pointer;
   }
+
+  ${(props) =>
+    props.visible &&
+    css`
+      visibility: visible;
+    `}
 `;
 
 const BoxMode = styled(CgMenuGridR)`
