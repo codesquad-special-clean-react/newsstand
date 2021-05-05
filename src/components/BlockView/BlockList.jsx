@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 
-import { newsState } from '@recoil/state';
+import { menuState, newsState } from '@recoil/state';
 import BlockItem from '@blockView/BlockItem';
+import { MENU } from '@src/utils/constant';
 
 const BlockList = () => {
-  const newsList = useRecoilValue(newsState);
+  const menu = useRecoilValue(menuState);
+  let newsList = useRecoilValue(newsState);
+
+  if (menu === MENU.MY_NEWS) {
+    newsList = newsList.filter((news) => news.subscribe);
+  }
+
   const NewsList = (
     <ul>
       {newsList.map((news) => (

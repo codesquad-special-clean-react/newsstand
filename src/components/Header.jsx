@@ -20,7 +20,7 @@ const Header = () => {
         <MenuGroup>
           <Menu active={menu === MENU.ALL_NEWS ? 'true' : ''} onClick={onClickMenu(MENU.ALL_NEWS)}>
             {MENU.ALL_NEWS}
-          </Menu>{' '}
+          </Menu>
           <ShortLine />
           <Menu active={menu === MENU.MY_NEWS ? 'true' : ''} onClick={onClickMenu(MENU.MY_NEWS)}>
             {MENU.MY_NEWS}
