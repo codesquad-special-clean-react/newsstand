@@ -38,8 +38,3 @@ export const newsState = selector({
     }
   },
 });
-
-// const subscribeNews = (news) => {
-//   console.log(myNews, news);
-//   return myNews.includes(news) ? { ...news, subscribe: true } : { ...news, subscribe: false };
-// };

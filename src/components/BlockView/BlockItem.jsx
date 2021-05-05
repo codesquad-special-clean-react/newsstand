@@ -36,8 +36,8 @@ const BlockItemWrapper = styled.div`
     align-items: center;
   }
 
-  ${(props) =>
-    props.hover &&
+  ${({ hover }) =>
+    hover &&
     css`
       background: #fdfdfd;
     `}

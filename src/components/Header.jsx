@@ -78,8 +78,8 @@ const MenuGroup = styled.nav`
 const Menu = styled.span`
   cursor: pointer;
 
-  ${(props) =>
-    props.active &&
+  ${({ active }) =>
+    active &&
     css`
       color: black;
       font-weight: bold;
@@ -105,24 +105,24 @@ const ViewModeGroup = styled.div`
     cursor: pointer;
   }
 
-  ${(props) =>
-    props.visible &&
+  ${({ visible }) =>
+    visible &&
     css`
       visibility: visible;
     `}
 `;
 
 const BoxMode = styled(CgMenuGridR)`
-  ${(props) =>
-    props.active &&
+  ${({ active }) =>
+    active &&
     css`
       color: black;
       font-weight: bold;
     `}
 `;
 const ListMode = styled(CgMenu)`
-  ${(props) =>
-    props.active &&
+  ${({ active }) =>
+    active &&
     css`
       color: black;
       font-weight: bold;
