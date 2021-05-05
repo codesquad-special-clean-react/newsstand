@@ -2,19 +2,41 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { CgMenuGridR, CgMenu } from 'react-icons/cg';
 
+import { MENU, VIEW_MODE } from '@utils/constant';
+import { menuState, viewModeState } from '@recoil/state';
+import { useRecoilState } from 'recoil';
+
 const Header = () => {
+  const [menu, setMenu] = useRecoilState(menuState);
+  const [viewMode, setViewMode] = useRecoilState(viewModeState);
+
+  const onClickMenu = (menu) => () => setMenu(menu);
+  const onClickViewMode = (viewMode) => () => setViewMode(viewMode);
+
   return (
     <HeaderWrapper>
       <LeftWrapper>
         <Title>{'뉴스스탠드 >'} </Title>
         <MenuGroup>
-          <Menu active>전체 언론사</Menu> <ShortLine /> <Menu>MY 뉴스</Menu>
+          <Menu active={menu === MENU.ALL_NEWS ? 'true' : ''} onClick={onClickMenu(MENU.ALL_NEWS)}>
+            {MENU.ALL_NEWS}
+          </Menu>{' '}
+          <ShortLine />
+          <Menu active={menu === MENU.MY_NEWS ? 'true' : ''} onClick={onClickMenu(MENU.MY_NEWS)}>
+            {MENU.MY_NEWS}
+          </Menu>
         </MenuGroup>
       </LeftWrapper>
       <RightWrapper>
         <ViewModeGroup>
-          <BoxMode active={'true'} />
-          <ListMode />
+          <BoxMode
+            active={viewMode === VIEW_MODE.BLOCK ? 'true' : ''}
+            onClick={onClickViewMode(VIEW_MODE.BLOCK)}
+          />
+          <ListMode
+            active={viewMode === VIEW_MODE.LIST ? 'true' : ''}
+            onClick={onClickViewMode(VIEW_MODE.LIST)}
+          />
         </ViewModeGroup>
         <LeftRightButtonGroup>
           <Button>{'<'}</Button>
