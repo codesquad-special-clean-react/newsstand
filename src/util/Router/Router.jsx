@@ -7,15 +7,14 @@ export const HistoryContext = React.createContext({
 
 export const Router = ({ routeList, children }) => {
   const [routes] = useState(() => Object.keys(routeList).map((key) => routeList[key].path));
-
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
+
+  const is404 = routes.indexOf(currentPath) === -1;
   const handlePopStateEvent = useCallback(({ state }) => {
     if (state && state.to) {
       setCurrentPath(state.to);
     }
   }, []);
-
-  const is404 = routes.indexOf(currentPath) === -1;
 
   useEffect(() => {
     window.addEventListener('popstate', handlePopStateEvent, false);
