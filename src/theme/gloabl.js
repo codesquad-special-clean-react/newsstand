@@ -19,6 +19,11 @@ const GlobalStyle = createGlobalStyle`
     background: transparent;
     cursor: pointer;
   }
+
+  ul {
+    margin: 0;
+    padding-left: 0;
+  }
 `;
 
 export default GlobalStyle;
