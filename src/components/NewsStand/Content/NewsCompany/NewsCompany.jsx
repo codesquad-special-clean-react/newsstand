@@ -1,15 +1,15 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { newsSelector } from '../../../../recoil/news';
-import CompanyInfoCard from './CompanyInfoCard';
+import { newsFetchSelector } from '../../../../recoil/news';
+import CompanyInfoCard from './CompanyInfoCard/CompanyInfoCard';
 
 const NewsCompany = () => {
-  const fetchCompanyList = useRecoilValue(newsSelector);
-  const newsCompanyList = fetchCompanyList.map(({ id, company, logoImgUrl }) => (
+  const fetchCompanyList = useRecoilValue(newsFetchSelector);
+  const NewsCompanyList = fetchCompanyList.map(({ id, company, logoImgUrl }) => (
     <CompanyInfoCard key={id} {...{ id, company, logoImgUrl }} />
   ));
 
-  return <>{newsCompanyList}</>;
+  return NewsCompanyList;
 };
 
 export default NewsCompany;

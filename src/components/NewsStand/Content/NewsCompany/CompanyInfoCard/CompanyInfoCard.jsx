@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, CardBtn } from './NewsCompany.style';
 import { useRecoilState } from 'recoil';
-import { myNewsStandState } from '../../../../recoil/news';
+import { myNewsSubscribeState } from '../../../../../recoil/news';
+import { Card, CardBtn } from './CompanyInfoCard.style';
 
 const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
-  const [myNewsStandList, setMyNewsStandList] = useRecoilState(myNewsStandState);
+  const [myNewsStandList, setMyNewsStandList] = useRecoilState(myNewsSubscribeState);
   const isSubscribeCompany = myNewsStandList.some((subscribeId) => subscribeId === id);
 
   const handleSubscribe = () => {
@@ -17,16 +17,19 @@ const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
     });
   };
 
+  const SubScribeBtn = () => {
+    if (isSubscribeCompany) {
+      return <button onClick={handleUnSubscribe}>해제</button>;
+    }
+
+    return <button onClick={handleSubscribe}>구독</button>;
+  };
+
   return (
     <Card>
       <img alt={company} src={logoImgUrl} loading="lazy" />
       <CardBtn className="popup_wrap">
-        {isSubscribeCompany ? (
-          <button onClick={handleUnSubscribe}>해제</button>
-        ) : (
-          <button onClick={handleSubscribe}>구독</button>
-        )}
-
+        <SubScribeBtn />
         <button>기사보기</button>
       </CardBtn>
     </Card>
