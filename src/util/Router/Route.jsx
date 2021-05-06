@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { Fragment, useContext } from 'react';
 import { HistoryContext } from './Router';
 
 export const Route = ({ path, children, ...props }) => {
@@ -6,5 +6,5 @@ export const Route = ({ path, children, ...props }) => {
   if (path !== currentPath) {
     return null;
   }
-  return <div {...props}>{children}</div>;
+  return <Fragment {...props}>{children}</Fragment>;
 };

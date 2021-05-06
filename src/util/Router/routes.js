@@ -2,10 +2,10 @@ export const routes = {
   home: {
     path: '/',
   },
-  labels: {
-    path: '/labels',
+  mynews: {
+    path: '/mynews',
   },
-  milestones: {
-    path: '/milestones',
+  newscompany: {
+    path: '/newscompany',
   },
 };
