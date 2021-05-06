@@ -3,7 +3,7 @@
     {
       "company":"경향신문",
       "id":"032",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/032.png",
       "newslist":[
         "이건희 삼성전자 지분, 왜 이재용에 몰아주지 않았을까",
@@ -21,7 +21,7 @@
     {
       "company":"KBS",
       "id":"056",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/056.png",
       "newslist":[
         "AZ백신 잔여량 이틀분 추정 …'화이자 백신 계획대로 접종 중'",
@@ -39,7 +39,7 @@
     {
       "company":"블로터",
       "id":"293",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/293.png",
       "newslist":[
         "LG전자  '올레드 에보'...IT 외신 '넷플릭스 4K를 보라'",
@@ -57,7 +57,7 @@
     {
       "company":"서울경제",
       "id":"011",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/011.png",
       "newslist":[
         "카드론 내년 7월부터 DSR 포함…다중채무자 어쩌나",
@@ -75,7 +75,7 @@
     {
       "company":"JTBC",
       "id":"904",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/904.png",
       "newslist":[
         "나흘째 600명대…가정의달 5월 '방역 살얼음판'",
@@ -93,7 +93,7 @@
     {
       "company":"시사인",
       "id":"308",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/308.png",
       "newslist":[
         "일본 사회의 '체념'이 초보 외국인에게 준 기회",
@@ -111,7 +111,7 @@
     {
       "company":"한국경제",
       "id":"015",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/015.png",
       "newslist":[
         "'더 이상은 못 참아' 폭발…中·日 '인산인해'",
@@ -129,7 +129,7 @@
     {
       "company":"한국경제TV",
       "id":"215",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/215.png",
       "newslist":[
         "남성 혐오 논란 GS25…불매운동 조짐에 `사과문`",
@@ -147,7 +147,7 @@
     {
       "company":"한겨레",
       "id":"028",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/028.png",
       "newslist":[
         "AZ도 20만회분 미만 남아…이달 초·중순 '백신 보릿고개'",
@@ -165,7 +165,7 @@
     {
       "company":"SBS",
       "id":"055",
-      "isSubcribe": false,
+      "isSubscribe": false,
       "logoImgUrl":"https://s.pstatic.net/static/newsstand/2020/logo/light/0604/055.png",
       "newslist":[
         "청문회 앞두고…'두 딸과 출장' '부인이 절도로 벌금'",
