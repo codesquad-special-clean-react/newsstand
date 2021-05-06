@@ -1,4 +1,4 @@
-import { atom, selector } from 'recoil';
+import { atom, selector, selectorFamily } from 'recoil';
 
 export const pathState = atom({
   key: 'pathState',
@@ -25,25 +25,34 @@ export const myNewsSubscribeState = atom({
   default: [],
 });
 
-export const mySubscribeNewCompanyListSelector = selector({
-  key: 'mySubscribeNewCompanyListSelector',
+export const mySubscribeNewsCompanyListSelector = selector({
+  key: 'mySubscribeNewsCompanyListSelector',
   get: ({ get }) => {
-    const newsList = get(newsFetchSelector);
-    const subscribeList = get(myNewsSubscribeState);
-    return newsList.filter(({ id }) => subscribeList.includes(id));
+    const newsList = get(newsFetchSelector;
+    const subscribeList = get(myNewsSubscribeState;
+    return newsList.filter(({ id }) => subscribeList.includes(id);
   },
-});
+};
 
 export const myTargetNewsState = atom({
   key: 'myTargetNews',
   default: '',
-});
+})
 
 export const myTargetNewsSelector = selector({
   key: 'myTargetNewsSelector',
+  default: [],
   get: ({ get }) => {
-    const subscribeList = get(mySubscribeNewCompanyListSelector);
-    const targetId = get(myTargetNewsState);
-    return subscribeList.filter(({ id }) => id === targetId)[0];
+    const subscribeList = get(mySubscribeNewsCompanyListSelector)
+    const targetId = get(myTargetNewsState) ? get(myTargetNewsState) : subscribeList[0]?.id
+
+    return subscribeList.filter(({ id }) => id === targetId)
   },
-});
+})
+
+export const moveBtn = selectorFamily({
+  key: 'moveSelector',
+  set: (type) => ({ get, set }) => {
+    const targetId = get(myTargetNewsState)
+  },
+})

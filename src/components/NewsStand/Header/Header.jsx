@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { HistoryContext, Link, routes } from '../../../util/Router';
-import { pathState } from '../../../recoil/news';
-import { useRecoilState } from 'recoil';
+import { Link, routes } from '../../../util/Router';
+import { myTargetNewsState, pathState } from '../../../recoil/news';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 const HeaderWrap = styled.header`
   height: 56px;
@@ -53,12 +53,25 @@ const DirectionBtnWrap = styled.div`
 `;
 
 const Header = () => {
-  const { currentPath } = useContext(HistoryContext);
-  const [path, setPath] = useRecoilState(pathState);
+  const path = useRecoilValue(pathtate);
+  const [myTargetNews, setMyTargetNews] = useRecoilState(myTargetNewstate);
 
-  useEffect(() => {
-    setPath(currentPath);
-  }, [currentPath]);
+  const moveNewsCompany = ({ target: { name } }) => {
+    if (name === 'next') {
+   }
+  };
+
+  const MyNewsBtnList = () => {
+    if (path === '/mynews') {
+      return (
+        <MyNewsBtnWrap>
+          <button>List</button>
+          <button>Card</button>
+        </MyNewsBtnWrap>
+     );
+    }
+    retur nul;
+  };
   return (
     <HeaderWrap>
       <NewsStandSortBtnWrap>
@@ -66,15 +79,14 @@ const Header = () => {
         <Link to={routes.newscompany.path}>전체 언론사</Link>
       </NewsStandSortBtnWrap>
       <RightControlBtnWrap>
-        {path === '/mynews' && (
-          <MyNewsBtnWrap>
-            <button>List</button>
-            <button>Card</button>
-          </MyNewsBtnWrap>
-        )}
+        <MyNewsBtnList/>
         <DirectionBtnWrap>
-          <button>←</button>
-          <button>→</button>
+          <button name="prev" onClick={moveNewsCompany}>
+            ←
+          </button>
+          <button name="next" onClick={moveNewsCompany}>
+            →
+          </button>
         </DirectionBtnWrap>
       </RightControlBtnWrap>
     </HeaderWrap>
