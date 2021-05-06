@@ -1,9 +1,9 @@
-import { api } from '@utils/api';
+import { API } from '@utils/api';
 import { NEWS_URL } from '@utils/constant';
 
 export const getNews = async () => {
   try {
-    const result = await api.get(NEWS_URL);
+    const result = await API.get(NEWS_URL);
 
     if (result.ok) {
       return result.json();
