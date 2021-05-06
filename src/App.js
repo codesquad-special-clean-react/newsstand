@@ -1,10 +1,11 @@
-import NewsStand from "./components/NewsStand.jsx";
+import NewsStand from './components/NewsStand.jsx';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <NewsStand />
-    </>
+    </RecoilRoot>
   );
 }
 

@@ -1,9 +1,8 @@
-import { selector } from "recoil";
-import APIs from "../apis/APIs.js";
+import { atom } from 'recoil';
 
-const pressState = selector({
-  key: "pressState",
-  get: async () => await APIs.getPress(),
+const pressState = atom({
+  key: 'pressState',
+  default: [],
 });
 
 export { pressState };
