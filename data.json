@@ -1,0 +1,174 @@
+{
+  "news": [
+    {
+      "company": "경향신문",
+      "id": "032",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/032.png",
+      "newslist": [
+        "이건희 삼성전자 지분, 왜 이재용에 몰아주지 않았을까",
+        "5명 중 3명 '친문'…검찰·언론개혁 요구 세질 듯",
+        "1차접종 늘리려 2차용 '당겨쓰기'…불균형 왜?",
+        "'라떼는 말이야'… 4050 상사들의 '꼰대 갑질'",
+        "육군훈련소장, '과잉방역' 질타에 늑장 사과문",
+        "탈탄소 산업 전환에 5년간 13조7000억 든다"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9001/221559_001.jpg",
+        "text": "15명 중 4명이 폐질환...산재신청 권유에도 '짤릴까봐'"
+      }
+    },
+    {
+      "company": "KBS",
+      "id": "056",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/056.png",
+      "newslist": [
+        "AZ백신 잔여량 이틀분 추정 …'화이자 백신 계획대로 접종 중'",
+        "[대담] 송영길 '첫주택 구입 LTV완화, 공시지가 현실화 속도조절'",
+        "'부천 가는 GTX-D?'…경전철 혼잡 어쩌나",
+        "날아온 타이어 파편에 앞유리 와장창…배상은 운에 맡겨라?",
+        "'어떻게 죽었는지만이라도…' 숨진 대학생 아버지 인터뷰",
+        "[영상] 강원도 '비가 눈으로 바뀌어 내려'…눈 내리는 '야경'"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9044/221559_001.jpg",
+        "text": "간부가 체육경기 중 병사 폭행 중상…사단장, 공식 사과"
+      }
+    },
+    {
+      "company": "블로터",
+      "id": "293",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/293.png",
+      "newslist": [
+        "LG전자  '올레드 에보'...IT 외신 '넷플릭스 4K를 보라'",
+        "영국서 '수소 항공기' 비상착륙...안전성 다시 도마에",
+        "[넘버스]정확한 이건희 상속재산 밝힐까...이제는 국세청 차례",
+        "[게임발전소]학교에서 벌어지는 기이한 사건들, '더 코마: 리컷'",
+        "[이건희 레거시]이부진·이서현은 '삼성전자' 양보하지 않았다",
+        "대형 크레인을 '5G'로 제어하면 생기는 일(feat. LG유플러스)[퓨처클립]"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9054/192159_001.jpg",
+        "text": "플로, 음원 경쟁력 강화에 2000억 투자...흑자전환 할까"
+      }
+    },
+    {
+      "company": "서울경제",
+      "id": "011",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/011.png",
+      "newslist": [
+        "카드론 내년 7월부터 DSR 포함…다중채무자 어쩌나",
+        "北 '美, 실용외교 꺼낸건 실수'…한반도 긴장의 5월",
+        "대주주 구성까지…코인 거래소 밀착 검증나선 은행",
+        "집 지금 사야되나? 전문가들 '경기 외곽 조심하라'",
+        "국토장관 후보 부인, 절도 전력 '갱년기 우울증에…''",
+        "하루 지났는데 인기척 없는 텐트…일가족 3명 숨져"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9018/221257_001.jpg",
+        "text": "[단독] 원전빠진 '수소경제'…생산량 3년째 멈췄다"
+      }
+    },
+    {
+      "company": "JTBC",
+      "id": "904",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/904.png",
+      "newslist": [
+        "나흘째 600명대…가정의달 5월 '방역 살얼음판'",
+        "선생님도 딥페이크 피해…피의자 90%가 10~20대",
+        "'풋살 경기 중 무릎을'…군 간부, 병사 폭행 의혹",
+        "코로나 속 세계 곳곳 노동절 집회…수백 명 체포",
+        "강원 홍천 18.5㎝…대관령, 34년 만에 5월 눈",
+        "[풀영상] 5월 1일 (토) 뉴스룸 다시보기"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9110/220403_001.jpg",
+        "text": "송영길 '당원들에 감사…변화 꾀하려는 의지'"
+      }
+    },
+    {
+      "company": "시사인",
+      "id": "308",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/308.png",
+      "newslist": [
+        "일본 사회의 '체념'이 초보 외국인에게 준 기회",
+        "검은 천을 뒤집어쓴 엄마들",
+        "'벚꽃 피는 순서대로' 망하지 않으려면",
+        "'소스'냐 '아이디어'냐, 유튜브 저작권 위반 논란",
+        "'공동체 감각'을 환기시키는 '읽는 당신×북클럽'",
+        "모텔에서 태어난 아기"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0430/article_img/new_main/9052/114909_001.jpg",
+        "text": "비만 친구를 가진 사람이 비만일 확률은?"
+      }
+    },
+    {
+      "company": "한국경제",
+      "id": "015",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/015.png",
+      "newslist": [
+        "'더 이상은 못 참아' 폭발…中·日 '인산인해'",
+        "부인 반대 꺾고…비트코인 투자한 '천재 남편'",
+        "윤석열, 퇴임 후 2개월…어디서 뭐하나 봤더니",
+        "'맥주에 '이것' 없앴을 뿐인데…' 품절 대란",
+        "'소시지 집은 손이…' 젠더 갈등에 등 터진 GS25",
+        "통 큰 기부했는데…자녀들 '세금 폭탄' 맞았다"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9022/221257_001.jpg",
+        "text": "'이런 대란은 처음'…선박 없는데 밀려드는 수출 화물"
+      }
+    },
+    {
+      "company": "한국경제TV",
+      "id": "215",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/215.png",
+      "newslist": [
+        "남성 혐오 논란 GS25…불매운동 조짐에 `사과문`",
+        "37세 자산가가 귀뜸한 노하우…'네이버·쿠팡 경쟁은 기회' [부터뷰]",
+        "바닥난 AZ백신…화이자 이어 1차접종 차질빚나",
+        "이건희 회장의 `하트섬`...이 섬도 환원될까",
+        "아파트 복도서 2명 폭행한 주한미군…'바닥에 던지고 주먹질'",
+        "의류 수거함에서 꺼내 툭 걸친 전지현…'400만원 명품'"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9014/220403_001.jpg",
+        "text": "'기관·외인 여전히 유리'...'최소 2가지 개선해야'"
+      }
+    },
+    {
+      "company": "한겨레",
+      "id": "028",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/028.png",
+      "newslist": [
+        "AZ도 20만회분 미만 남아…이달 초·중순 '백신 보릿고개'",
+        "송영길 'LTV 등 완화로 주택 구매 사다리 만들어줘야'",
+        "또 여경무용론…'남성경찰이 제압 못할땐 그런 말 안나와'",
+        "연일 김어준 때리는 국민의힘…정작 오세훈은 거리두기",
+        "미얀마 최소 8명 사망…아세안과 '폭력 중단' 합의 뒤 최악",
+        "회사에 뺏긴 화물차 번호판, 불합리에 침묵할 수는 없다"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9009/215456_001.jpg",
+        "text": "'친문 일색 지도부' 피했지만 '친문 성공 방정식'은 통했다"
+      }
+    },
+    {
+      "company": "SBS",
+      "id": "055",
+      "logoImgUrl": "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/055.png",
+      "newslist": [
+        "청문회 앞두고…'두 딸과 출장' '부인이 절도로 벌금'",
+        "모텔서 술 팔다 딱 걸렸다…방 덮쳤는데도 '쿨쿨'",
+        "[단독] 마스크 쓰란 말에, 다섯 정거장 쫓아와 '퍽퍽'",
+        "'공 왜 뺏기냐' 병사 때려 무릎 골절…신고도 막았다",
+        "대통령의 '모욕' 고소…조국-文, 전엔 이렇게 말했다",
+        "[인터뷰] 송영길 '민주당 변화 바라는 열정이 모인 것'"
+      ],
+      "thumbnews": {
+        "imageUrl": "https://s.pstatic.net/static/newsstand/2021/0502/article_img/new_main/9013/221559_001.jpg",
+        "text": "[단독] 접종 증명서 위·변조 불가? 3분 만에 뚫렸다"
+      }
+    }
+  ]
+}

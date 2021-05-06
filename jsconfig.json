@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@blockView/*": ["src/components/BlockView/*"],
+      "@theme/*": ["src/theme/*"],
+      "@utils/*": ["src/utils/*"],
+      "@recoil/*": ["src/recoil/*"],
+      "@api/*": ["src/api/*"]
+    }
+  }
+}
