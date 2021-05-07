@@ -1,55 +1,64 @@
-import React, { useContext, useEffect } from "react";
-import { HistoryContext, Link, routes } from "../../../util/Router";
-import { myNewsSubscribeState, myTargetNewsState, pathState } from "../../../recoil/news";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { DirectionBtnWrap, HeaderWrap, MyNewsBtnWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from "./Header.style";
+import React, { useContext, useEffect } from 'react';
+import { HistoryContext, Link, routes } from '../../../util/Router';
+import { myNewsModeState, myNewsSubscribeState, myTargetNewsState, pathState } from '../../../recoil/news';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { DirectionBtnWrap, HeaderWrap, MyNewsBtnWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from './Header.style';
 
 const Header = () => {
   const { currentPath } = useContext(HistoryContext);
   const [path, setPath] = useRecoilState(pathState);
   const [targetId, setTargetId] = useRecoilState(myTargetNewsState);
   const subscribeList = useRecoilValue(myNewsSubscribeState);
+  const setNewsMode = useSetRecoilState(myNewsModeState);
 
   useEffect(() => {
     setPath(currentPath);
   }, [currentPath]);
 
-  const prevNewsTarget = (index, len) => {
-    const prevTarget = index - 1;
-    if (prevTarget < 0) {
-      setTargetId(subscribeList[len - 1]);
+  const prevNewsTarget = (currentNewsCompanyIdx, subscribeListLen) => {
+    const prevCompanyIdx = currentNewsCompanyIdx - 1;
+    if (prevCompanyIdx < 0) {
+      setTargetId(subscribeList[subscribeListLen - 1]);
       return false;
     }
 
-    setTargetId(subscribeList[prevTarget]);
+    setTargetId(subscribeList[prevCompanyIdx]);
   };
 
-  const nextNewsTarget = (index, len) => {
-    const nextTarget = index + 1;
-    if (len <= nextTarget) {
+  const nextNewsTarget = (currentNewsCompanyIdx, subscribeListLen) => {
+    const nextCompanyIdx = currentNewsCompanyIdx + 1;
+    if (subscribeListLen <= nextCompanyIdx) {
       setTargetId(subscribeList[0]);
       return false;
     }
 
-    setTargetId(subscribeList[nextTarget]);
+    setTargetId(subscribeList[nextCompanyIdx]);
   };
 
   const moveNewsCompany = ({ target: { name } }) => {
-    const len = subscribeList.length;
-    let index = subscribeList.indexOf(targetId);
-    if (index !== -1) {
-      if (name === "next") return nextNewsTarget(index, len);
+    const subscribeListLen = subscribeList.length;
+    let currentNewsCompanyIdx = subscribeList.indexOf(targetId);
+    if (currentNewsCompanyIdx !== -1) {
+      if (name === 'next') return nextNewsTarget(currentNewsCompanyIdx, subscribeListLen);
 
-      if (name === "prev") return prevNewsTarget(index, len);
+      if (name === 'prev') return prevNewsTarget(currentNewsCompanyIdx, subscribeListLen);
     }
+  };
+
+  const changeMode = ({ target: { name } }) => {
+    setNewsMode(name);
   };
 
   const MyNewsBtnList = () => {
     if (path === '/mynews') {
       return (
         <MyNewsBtnWrap>
-          <button>List</button>
-          <button>Card</button>
+          <button name="list" onClick={changeMode}>
+            List
+          </button>
+          <button name="card" onClick={changeMode}>
+            Card
+          </button>
         </MyNewsBtnWrap>
       );
     }
