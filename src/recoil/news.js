@@ -48,3 +48,8 @@ export const myNewsModeState = atom({
   key: 'myNewsModeState',
   default: MODE.LIST,
 });
+
+export const timerIdState = atom({
+  key: 'timerIdState',
+  default: '',
+});
