@@ -3,6 +3,7 @@ import { HistoryContext, Link, routes } from '../../../util/Router';
 import { myNewsModeState, myNewsSubscribeState, myTargetNewsState, pathState } from '../../../recoil/news';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { DirectionBtnWrap, HeaderWrap, MyNewsBtnWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from './Header.style';
+import { HEADER_BTN, MODE } from '../../../util/constant';
 
 const Header = () => {
   const { currentPath } = useContext(HistoryContext);
@@ -53,11 +54,11 @@ const Header = () => {
     if (path === '/mynews') {
       return (
         <MyNewsBtnWrap>
-          <button name="list" onClick={changeMode}>
-            List
+          <button name={MODE.LIST} onClick={changeMode}>
+            {MODE.LIST}
           </button>
-          <button name="card" onClick={changeMode}>
-            Card
+          <button name={MODE.CARD} onClick={changeMode}>
+            {MODE.CARD}
           </button>
         </MyNewsBtnWrap>
       );
@@ -67,17 +68,17 @@ const Header = () => {
   return (
     <HeaderWrap>
       <NewsStandSortBtnWrap>
-        <Link to={routes.mynews.path}>구독한 언론사</Link>
-        <Link to={routes.newscompany.path}>전체 언론사</Link>
+        <Link to={routes.mynews.path}>{HEADER_BTN.SUBSCRIPTION_COMPANY}</Link>
+        <Link to={routes.newscompany.path}>{HEADER_BTN.ALL_COMPANY}</Link>
       </NewsStandSortBtnWrap>
       <RightControlBtnWrap>
         <MyNewsBtnList />
         <DirectionBtnWrap>
-          <button name="prev" onClick={moveNewsCompany}>
-            ←
+          <button name={HEADER_BTN.PREV.title} onClick={moveNewsCompany}>
+            {HEADER_BTN.PREV.symbol}
           </button>
-          <button name="next" onClick={moveNewsCompany}>
-            →
+          <button name={HEADER_BTN.NEXT.title} onClick={moveNewsCompany}>
+            {HEADER_BTN.NEXT.symbol}
           </button>
         </DirectionBtnWrap>
       </RightControlBtnWrap>

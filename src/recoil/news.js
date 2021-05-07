@@ -1,4 +1,5 @@
 import { atom, selector } from 'recoil';
+import { newsFetcher } from '../util/api';
 
 export const pathState = atom({
   key: 'pathState',
@@ -7,17 +8,7 @@ export const pathState = atom({
 
 export const newsFetchSelector = selector({
   key: 'newsSelector',
-  get: async ({}) => {
-    try {
-      const response = await fetch('http://localhost:3001/news');
-      if (response.error) {
-        throw response.error;
-      }
-      return response.json();
-    } catch (err) {
-      console.error(err);
-    }
-  },
+  get: async ({}) => newsFetcher.get(),
 });
 
 export const myNewsSubscribeState = atom({
