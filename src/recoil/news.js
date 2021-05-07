@@ -22,7 +22,9 @@ export const mySubscribeNewsCompanyListSelector = selector({
   get: ({ get }) => {
     const newsList = get(newsFetchSelector);
     const subscribeList = get(myNewsSubscribeState);
-    return newsList.filter(({ id }) => subscribeList.includes(id));
+    return subscribeList.map((id) => {
+      return newsList.filter(({ id: companyId }) => companyId === id)[0];
+    });
   },
 });
 

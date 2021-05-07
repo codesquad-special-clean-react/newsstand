@@ -65,6 +65,7 @@ const Header = () => {
     }
     return null;
   };
+
   return (
     <HeaderWrap>
       <NewsStandSortBtnWrap>

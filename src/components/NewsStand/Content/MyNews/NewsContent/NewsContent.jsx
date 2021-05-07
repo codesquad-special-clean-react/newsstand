@@ -26,12 +26,15 @@ const NewsContent = () => {
   }, [newsInfo]);
 
   if (newsInfo.length === 0) return null;
+
   const {
     company,
     thumbnews: { imageUrl, text },
     newslist,
   } = newsInfo[0];
+
   const NewsTitles = newslist.map((title, idx) => <NewsRow key={idx}>{title}</NewsRow>);
+
   return (
     <NewsShowingViewWrapper>
       <NewsPublisherTitle>

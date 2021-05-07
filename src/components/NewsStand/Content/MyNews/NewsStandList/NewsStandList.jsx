@@ -7,25 +7,20 @@ import SubscribingCompany from './SubscribingCompany/SubscribingCompany';
 const NewsStandList = () => {
   const [myTargetNews, setMyTargetNews] = useRecoilState(myTargetNewsState);
   const companyNameList = useRecoilValue(mySubscribeNewsCompanyListSelector);
+
   useEffect(() => {
     setMyTargetNews(companyNameList[0]?.id);
   }, []);
+
   const NewsPublishers = () => {
     if (companyNameList.length) {
       return companyNameList.map(({ id, company }) => (
-        <SubscribingCompany
-          key={id}
-          {...{
-            id,
-            company,
-            myTargetNews,
-            setMyTargetNews,
-          }}
-        />
+        <SubscribingCompany key={id} {...{ id, company, myTargetNews, setMyTargetNews }} />
       ));
     }
     return null;
   };
+
   return (
     <NewsStandNav>
       <NewsStandListWrap>

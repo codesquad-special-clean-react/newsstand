@@ -15,6 +15,7 @@ const MyNewsList = () => {
 };
 const MyNewsCards = () => {
   const subscribeList = useRecoilValue(mySubscribeNewsCompanyListSelector);
+
   const SubscribeList = subscribeList.map(({ id, company, logoImgUrl }) => (
     <CompanyInfoCard key={id} {...{ id, company, logoImgUrl }} />
   ));
@@ -24,7 +25,7 @@ const MyNewsCards = () => {
 
 const MyNews = () => {
   const mode = useRecoilValue(myNewsModeState);
-  console.log(mode);
+
   const Content = {
     LIST: <MyNewsList />,
     CARD: <MyNewsCards />,
