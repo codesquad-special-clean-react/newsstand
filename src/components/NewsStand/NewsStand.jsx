@@ -1,8 +1,8 @@
 import React from 'react';
-import { Router, routes } from '../../util/Router';
+import { Router, routes } from '@router';
 import Header from './Header/Header';
 import Content from './Content/Content';
-import { LOADING } from '../../util/constant';
+import { LOADING } from '@utils/constant';
 
 const FallBack = <div>{LOADING}</div>;
 

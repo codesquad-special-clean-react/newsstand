@@ -7,9 +7,9 @@ import {
   NewsShowingViewWrapper,
   NewsThumb,
 } from './NewsContent.style';
-import { myTargetNewsSelector } from '../../../../../recoil/news';
+import { myTargetNewsSelector } from '@recoil/news';
 import { useRecoilValue } from 'recoil';
-import { HistoryContext } from '../../../../../util/Router';
+import { HistoryContext } from '@router';
 
 const NewsContent = () => {
   const { setCurrentPath } = useContext(HistoryContext);

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NewsStandListWrap, NewsStandNav } from './NewsStandList.style';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { mySubscribeNewsCompanyListSelector, myTargetNewsState } from '../../../../../recoil/news';
+import { mySubscribeNewsCompanyListSelector, myTargetNewsState } from '@recoil/news';
 import SubscribingCompany from './SubscribingCompany/SubscribingCompany';
 
 const NewsStandList = () => {

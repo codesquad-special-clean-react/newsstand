@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { HistoryContext, Link, routes } from '../../../util/Router';
-import { myNewsModeState, myNewsSubscribeState, myTargetNewsState, pathState } from '../../../recoil/news';
+import { HistoryContext, Link, routes } from '@utils/Router';
+import { myNewsModeState, myNewsSubscribeState, myTargetNewsState, pathState } from '@recoil/news';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { DirectionBtnWrap, HeaderWrap, MyNewsBtnWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from './Header.style';
-import { HEADER_BTN, MODE } from '../../../util/constant';
+import { HEADER_BTN, MODE } from '@utils/constant';
 
 const Header = () => {
   const { currentPath } = useContext(HistoryContext);
@@ -51,7 +51,7 @@ const Header = () => {
   };
 
   const MyNewsBtnList = () => {
-    if (path === '/mynews') {
+    if (path === routes.mynews.path) {
       return (
         <MyNewsBtnWrap>
           <button name={MODE.LIST} onClick={changeMode}>

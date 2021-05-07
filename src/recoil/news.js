@@ -1,5 +1,6 @@
 import { atom, selector } from 'recoil';
-import { newsFetcher } from '../util/api';
+import { newsFetcher } from '@utils/api';
+import { MODE } from '@utils/constant';
 
 export const pathState = atom({
   key: 'pathState',
@@ -43,5 +44,5 @@ export const myTargetNewsSelector = selector({
 
 export const myNewsModeState = atom({
   key: 'myNewsModeState',
-  default: 'list',
+  default: MODE.LIST,
 });

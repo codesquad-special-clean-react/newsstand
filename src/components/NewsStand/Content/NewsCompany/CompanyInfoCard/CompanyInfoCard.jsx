@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import { myNewsSubscribeState } from '../../../../../recoil/news';
+import { myNewsSubscribeState } from '@recoil/news';
 import { Card, CardBtn } from './CompanyInfoCard.style';
-import { COMPANY_CARD } from '../../../../../util/constant';
+import { COMPANY_CARD } from '@utils/constant';
 
 const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
   const [myNewsStandList, setMyNewsStandList] = useRecoilState(myNewsSubscribeState);

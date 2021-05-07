@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MyNews from './MyNews/MyNews';
 import NewsCompany from './NewsCompany/NewsCompany';
-import { Route, routes } from '../../../util/Router';
+import { Route, routes } from '@utils/Router';
 
 const Main = styled.main`
   box-sizing: border-box;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { newsFetchSelector } from '../../../../recoil/news';
+import { newsFetchSelector } from '@recoil/news';
 import CompanyInfoCard from './CompanyInfoCard/CompanyInfoCard';
 
 const NewsCompany = () => {
