@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@root": ["./"],
+      "@utils": ["./utils/"],
+      "@recoil": ["./recoil/"],
+      "@router": ["./utils/Router/"]
+
+    }
+  }
+}
