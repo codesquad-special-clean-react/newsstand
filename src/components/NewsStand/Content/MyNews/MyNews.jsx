@@ -1,7 +1,7 @@
 import React from 'react';
 import NewsStandList from './NewsStandList/NewsStandList';
 import NewsContent from './NewsContent/NewsContent';
-import { myNewsModeState, mySubscribeNewsCompanyListSelector } from '@recoil/news';
+import { myNewsModeState, mySubscribeNewsCompanyListSelector } from '@recoilStore/news';
 import { useRecoilValue } from 'recoil';
 import CompanyInfoCard from '../NewsCompany/CompanyInfoCard/CompanyInfoCard';
 
@@ -24,14 +24,13 @@ const MyNewsCards = () => {
 };
 
 const MyNews = () => {
-  const mode = useRecoilValue(myNewsModeState);
-
+  const viewMode = useRecoilValue(myNewsModeState);
   const Content = {
     LIST: <MyNewsList />,
     CARD: <MyNewsCards />,
   };
 
-  return Content[mode];
+  return Content[viewMode];
 };
 
 export default MyNews;
