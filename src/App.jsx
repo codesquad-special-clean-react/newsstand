@@ -1,21 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from '@components/Header';
-import BlockList from '@blockView/BlockList';
-import ListView from '@listView/ListView';
+import AllPress from '@components/AllPress';
+import MyPress from '@components/MyPress';
 
 function App() {
   const loadingComponent = <div>loading...</div>;
 
   return (
-    <NewsStandWrapper>
-      <Header />
-      <React.Suspense fallback={loadingComponent}>
-        {/* <BlockList /> */}
-        <ListView />
-      </React.Suspense>
-    </NewsStandWrapper>
+    <Router>
+      <NewsStandWrapper>
+        <Header />
+        <React.Suspense fallback={loadingComponent}>
+          <Switch>
+            <Route path="/all" component={AllPress}></Route>
+            <Route path="/my" component={MyPress}></Route>
+            <Route path="/" component={AllPress}></Route>
+          </Switch>
+        </React.Suspense>
+      </NewsStandWrapper>
+    </Router>
   );
 }
 

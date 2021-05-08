@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import { menuState, newsState } from '@recoil/state';
 import BlockItem from '@blockView/BlockItem';
-import { MENU } from '@src/utils/constant';
+import { MENU } from '@utils/constant';
 
 const BlockList = () => {
   const menu = useRecoilValue(menuState);

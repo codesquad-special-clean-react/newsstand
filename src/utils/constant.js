@@ -3,6 +3,11 @@ export const MENU = {
   MY_NEWS: 'MY 뉴스',
 };
 
+export const MENU_RUL = {
+  ALL_NEWS: 'all',
+  MY_NEWS: 'my',
+};
+
 export const VIEW_MODE = {
   BLOCK: 'BLOCK',
   LIST: 'LIST',

@@ -6,7 +6,9 @@ import { myNewsListState } from '@src/recoil/state';
 
 const ListView = () => {
   let newsList = useRecoilValue(myNewsListState);
-  const [news, setNews] = useState(newsList[0] || []);
+  const [news, setNews] = useState((newsList.length > 0 && newsList[0]) || []);
+
+  if (!newsList.length) return <EmptyNewsBox></EmptyNewsBox>;
 
   const onNewsChange = ({ target }) => {
     const company = target.dataset['company'];
@@ -128,6 +130,12 @@ const NewsItem = styled.li`
   &:hover {
     font-weight: bold;
   }
+`;
+
+const EmptyNewsBox = styled.div`
+  background: white;
+  padding: 1em;
+  height: 100px;
 `;
 
 export default ListView;
