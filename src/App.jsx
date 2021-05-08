@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Header from '@components/Header';
 import BlockList from '@blockView/BlockList';
+import ListView from '@listView/ListView';
 
 function App() {
   const loadingComponent = <div>loading...</div>;
@@ -11,7 +12,8 @@ function App() {
     <NewsStandWrapper>
       <Header />
       <React.Suspense fallback={loadingComponent}>
-        <BlockList />
+        {/* <BlockList /> */}
+        <ListView />
       </React.Suspense>
     </NewsStandWrapper>
   );
