@@ -1,18 +1,19 @@
 import { useRecoilState } from "recoil";
-import { currentNewsState, newsListState } from "../../../recoils/atoms";
+import { currentNewsState } from "../../../recoils/atoms";
 import { Navigation, NavItem } from "./styles";
+import useFilteredNewsList from "../../../hooks/useFilteredNewsList";
 
 const MainNavigation = () => {
-  const [newsList] = useRecoilState(newsListState);
   const [currentNews, setCurrentNews] = useRecoilState(currentNewsState);
   const handleClick = (news) => () => {
     setCurrentNews(news);
   };
+  const filteredNewsList = useFilteredNewsList();
 
   return (
     <Navigation>
       <ul>
-        {newsList.map((news) => (
+        {filteredNewsList.map((news) => (
           <NavItem
             key={news.id}
             onClick={handleClick(news)}

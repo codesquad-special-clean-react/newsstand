@@ -1,13 +1,14 @@
 import { Navigator, Navigators } from "./styles";
 import { useRecoilState } from "recoil";
-import { currentNewsState, newsListState } from "../../../recoils/atoms";
+import { currentNewsState } from "../../../recoils/atoms";
+import useFilteredNewsList from "../../../hooks/useFilteredNewsList";
 
 const HeaderNavigators = () => {
-  const [newsList] = useRecoilState(newsListState);
+  const filteredNewsList = useFilteredNewsList();
   const [currentNews, setCurrentNews] = useRecoilState(currentNewsState);
 
   const raiseError = () => {
-    if (newsList.length < 1) {
+    if (filteredNewsList.length < 1) {
       throw new Error("뉴스리스트를 불러오지 못했습니다.");
     }
   };
@@ -15,23 +16,23 @@ const HeaderNavigators = () => {
   const handleClickNext = () => {
     raiseError();
     if (!currentNews) {
-      setCurrentNews(newsList[0]);
+      setCurrentNews(filteredNewsList[0]);
     } else {
-      const nextIndex = newsList.indexOf(currentNews) + 1;
-      const newIndex = nextIndex >= newsList.length ? 0 : nextIndex;
-      setCurrentNews(newsList[newIndex]);
+      const nextIndex = filteredNewsList.indexOf(currentNews) + 1;
+      const newIndex = nextIndex >= filteredNewsList.length ? 0 : nextIndex;
+      setCurrentNews(filteredNewsList[newIndex]);
     }
   };
 
   const handleClickPrevious = () => {
     raiseError();
-    const initialIndex = newsList.length - 1;
+    const initialIndex = filteredNewsList.length - 1;
     if (!currentNews) {
-      setCurrentNews(newsList[initialIndex]);
+      setCurrentNews(filteredNewsList[initialIndex]);
     } else {
-      const previousIndex = newsList.indexOf(currentNews) - 1;
+      const previousIndex = filteredNewsList.indexOf(currentNews) - 1;
       const newIndex = previousIndex < 0 ? initialIndex : previousIndex;
-      setCurrentNews(newsList[newIndex]);
+      setCurrentNews(filteredNewsList[newIndex]);
     }
   };
 

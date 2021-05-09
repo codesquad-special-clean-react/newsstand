@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
-import { newsListState } from "../../../recoils/atoms";
 import Card from "../../molecules/card";
+import useFilteredNewsList from "../../../hooks/useFilteredNewsList";
 
 const Container = styled.div`
   display: flex;
@@ -10,11 +9,11 @@ const Container = styled.div`
 `;
 
 const MainCardDisplay = () => {
-  const [newsList] = useRecoilState(newsListState);
+  const filteredNewsList = useFilteredNewsList();
 
   return (
     <Container>
-      {newsList.map((n) => {
+      {filteredNewsList.map((n) => {
         return <Card key={n.id} news={n} />;
       })}
     </Container>
