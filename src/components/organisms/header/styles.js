@@ -25,16 +25,6 @@ export const LayoutSelector = styled(FlexDiv)`
   margin-right: 5rem;
 `;
 
-export const Navigators = styled(FlexDiv)`
-  margin: inherit;
-`;
-
-export const Navigator = styled.div`
-  ${ClickableMixin};
-  padding: 1rem;
-  border: 1px solid lightgray;
-`;
-
 export const Layout = styled.div`
   ${ClickableMixin};
   &:first-child {
@@ -50,4 +40,5 @@ export const Divider = styled.span`
 export const Menu = styled.span`
   ${ClickableMixin};
   margin-left: 1rem;
+  color: gray;
 `;
