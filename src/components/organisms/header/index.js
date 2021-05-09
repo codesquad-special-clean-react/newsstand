@@ -48,12 +48,14 @@ const Header = () => {
   return (
     <StyledHeader>
       <Breadcrumb>
-        <Menu>뉴스스탠드</Menu>
+        <span>뉴스스탠드</span>
         <Divider>></Divider>
-        <Menu>전체 언론사</Menu>
       </Breadcrumb>
       <Title>
-        <span>MY 뉴스</span>
+        <div>
+          <Menu>전체 언론사</Menu>
+          <Menu>MY 뉴스</Menu>
+        </div>
         <LayoutSelector>
           <Layout>카드</Layout>
           <Layout>리스트</Layout>

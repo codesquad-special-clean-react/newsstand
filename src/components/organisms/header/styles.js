@@ -17,11 +17,13 @@ export const StyledHeader = styled.header`
 export const Breadcrumb = styled.div``;
 
 export const Title = styled(FlexDiv)`
-  justify-content: space-around;
+  justify-content: space-between;
   flex: 1;
 `;
 
-export const LayoutSelector = styled(FlexDiv)``;
+export const LayoutSelector = styled(FlexDiv)`
+  margin-right: 5rem;
+`;
 
 export const Navigators = styled(FlexDiv)`
   margin: inherit;
@@ -47,4 +49,5 @@ export const Divider = styled.span`
 
 export const Menu = styled.span`
   ${ClickableMixin};
+  margin-left: 1rem;
 `;
