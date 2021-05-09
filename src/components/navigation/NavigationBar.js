@@ -2,13 +2,13 @@ import React from 'react';
 import { useContext } from 'react';
 import { CardIcon, ListIcon } from '../../assets/icons';
 import { RouterContext } from '../../context/RouterContext';
+import useRoute from '../../hooks/useRoute';
 import Link from '../../router/components/Link';
 import { routes } from '../../router/routes';
 import * as Styled from './NavigationBar.style';
 
 const NavigationBar = () => {
-    const { route } = useContext(RouterContext);
-    const isMyNewsSelected = route.path.startsWith('/mynews');
+    const { isMyNewsSelected } = useRoute();
 
     return (
         <Styled.Container>

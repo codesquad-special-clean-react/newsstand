@@ -1,11 +1,11 @@
 import React from 'react';
-import { useContext } from 'react';
-import { history, RouterContext } from '../../context/RouterContext';
+import { history } from '../../context/RouterContext';
+import useRoute from '../../hooks/useRoute';
 import * as Styled from './Link.style';
 
 const Link = (props) => {
     const { to, children, onClick, isSelected } = props;
-    const { route } = useContext(RouterContext);
+    const { route } = useRoute();
     const isSelectedLink = isSelected || route.path === to;
 
     const handleClickLink = (event) => {
