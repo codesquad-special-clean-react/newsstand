@@ -1,11 +1,5 @@
-import styled, { css } from "styled-components";
-
-const ClickableMixin = css`
-  cursor: pointer;
-  &:hover {
-    opacity: 0.6;
-  }
-`;
+import styled from "styled-components";
+import { ClickableMixin } from "../../../styles/mixins";
 
 export const FlexDiv = styled.div`
   display: flex;
