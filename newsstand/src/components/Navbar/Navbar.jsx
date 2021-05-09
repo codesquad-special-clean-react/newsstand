@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { NAV_NAME, ROUTE } from "../../utils/constants"
 import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { subscribeState } from '../../atoms/myNewsState';
 
 const TITLE = "뉴스스탠드"
 
@@ -10,6 +12,8 @@ const leftButton = "<"
 const rightButton = ">"
 
 const Navbar = (props) => {
+  const subscribeFlag = useRecoilValue(subscribeState)
+
   return (
     <NavbarWrapper>
       <NavbarItems>
@@ -21,14 +25,21 @@ const Navbar = (props) => {
           <Link to={ROUTE.MY_NEWS}>{NAV_NAME.MY_NEWS}</Link>
         </div>
       </NavbarItems>
-      <NavbarItems>
-        <div>
-          Card
-        </div>
-        <div>
-          List
-        </div>
-      </NavbarItems>
+      {
+        subscribeFlag === "Subscribed" 
+          ? (
+            <NavbarItems>
+              <div>
+                Card
+              </div>
+              <div>
+                List
+              </div>
+            </NavbarItems>
+          ) 
+        : null
+      }
+      
       <NavbarItems>
         <div>
           {leftButton}
@@ -53,6 +64,10 @@ const NavbarWrapper = styled.nav`
 
 const NavbarItems = styled.div`
   display: flex;
+
+  div {
+    cursor: pointer;
+  }
 `
 
 export default Navbar;
