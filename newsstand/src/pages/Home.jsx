@@ -1,15 +1,19 @@
-import React from "react";
-import { useRecoilValue } from "recoil"
-import { mySuscribeNews } from "../atoms/myNewsState"
+import React, { useEffect } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil"
+import { subscribeState, mySubscribeNews } from "../atoms/myNewsState"
 import CardsList from "../components/Cards/CardsList"
 
 
 const Home = () => {
-  const news = useRecoilValue(mySuscribeNews)
+  const setSubscribeState = useSetRecoilState(subscribeState)
+
+  useEffect(() => {
+    setSubscribeState("All")
+  }, [])
 
   return (
     <>
-      <CardsList pressList={news} />
+      <CardsList />
     </>
   )
 }

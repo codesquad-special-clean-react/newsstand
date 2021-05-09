@@ -1,8 +1,11 @@
+import { useRecoilValue } from 'recoil';
 import styled from "styled-components";
+import { mySubscribeNews } from '../../atoms/myNewsState';
 import CardsItem from "./CardsItem";
 
-const CardsList = ({ pressList }) => {
-  const pressItem = [...pressList].map(item => <CardsItem key={item.id} press={item} />)
+const CardsList = () => {
+  const news = useRecoilValue(mySubscribeNews)
+  const pressItem = [...news].map(item => <CardsItem key={item.id} press={item} />)
   
   return (
     <CardsListWrapper>
