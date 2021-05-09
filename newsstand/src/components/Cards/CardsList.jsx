@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styled from "styled-components";
 import CardsItem from "./CardsItem";
 
 const CardsList = ({ pressList }) => {
   const pressItem = [...pressList].map(item => <CardsItem key={item.id} press={item} />)
+  
   return (
     <CardsListWrapper>
       {pressItem}

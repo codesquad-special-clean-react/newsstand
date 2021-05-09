@@ -1,11 +1,11 @@
 import React from "react";
-import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil"
-import newsState from "../atoms/newsState"
+import { useRecoilValue } from "recoil"
+import { mySuscribeNews } from "../atoms/myNewsState"
 import CardsList from "../components/Cards/CardsList"
 
 
 const Home = () => {
-  const news = useRecoilValue(newsState)
+  const news = useRecoilValue(mySuscribeNews)
 
   return (
     <>

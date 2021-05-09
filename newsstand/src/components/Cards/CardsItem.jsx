@@ -5,8 +5,8 @@ import CardsImage from "./CardsImage"
 
 const CardsItem = ({ press }) => {
   const [hoverFlag, setHoverFlag] = useState(false)
-  const { id, company, logoImgUrl } = press
-
+  const { id, company, logoImgUrl, subscribe } = press
+  
   const toggleHoverFlag = (type) => setHoverFlag(type)
 
   const cardHoverButton = ({ props }) => {
@@ -15,10 +15,13 @@ const CardsItem = ({ press }) => {
   }
 
   return (
-    <CardsItemWrapper onMouseOver={() => toggleHoverFlag(true)} onMouseOut={() => toggleHoverFlag(false)}>
+    <CardsItemWrapper 
+      onMouseOver={() => toggleHoverFlag(true)} 
+      onMouseOut={() => toggleHoverFlag(false)}
+    >
       {
         cardHoverButton({
-          props: { id, logoImgUrl, company }
+          props: { id, logoImgUrl, company, subscribe }
         })
       }
     </CardsItemWrapper>

@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from "styled-components";
 
-const CardsItemButtons = () => {
+const subscribeButtonNames = {
+  SUBSCRIBE: "구독",
+  UNSUBSCRIBE: "해지"
+}
+
+const CardsItemButtons = ({ id, logoImgUrl, company, subscribe }) => {
+  const buttonName = subscribe ? subscribeButtonNames.UNSUBSCRIBE : subscribeButtonNames.SUBSCRIBE
+  
   return (
     <CardsItemHoverWrapper>
-      <div>구독</div>
+      <div>{buttonName}</div>
       <div>기사보기</div>
     </CardsItemHoverWrapper>
   )
