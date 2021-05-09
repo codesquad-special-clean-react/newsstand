@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { ClickableMixin } from "../../../styles/mixins";
-import { FlexDiv } from "../../organisms/header/styles";
 
-export const Navigators = styled(FlexDiv)`
+export const Navigators = styled.div`
+  display: flex;
   margin: inherit;
 `;
 
