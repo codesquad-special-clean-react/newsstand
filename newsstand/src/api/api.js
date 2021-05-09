@@ -37,3 +37,8 @@ export const getNewsData = async () => {
   const newsData = await request(`${API_ENDPOINT}${URL.NEWS}`);
   return newsData;
 };
+
+export const getMyNewsData = async () => {
+  const myNewsData = await request(`${API_ENDPOINT}${URL.MY_NEWS}`);
+  return myNewsData;
+};
