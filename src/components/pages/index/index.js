@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import Header from "components/organisms/header";
 import Main from "components/organisms/main";
-import { useFetch } from "../../../hooks/useFetch";
-import { fetchNewsList } from "../../../apis/news";
+import { useFetch } from "hooks/useFetch";
+import { fetchNewsList } from "apis/news";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { newsListState } from "recoils/atoms";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -11,12 +14,20 @@ const StyledDiv = styled.div`
 
 const Index = () => {
   const { data, loading, error } = useFetch({ fetch: fetchNewsList });
-  console.log(data, loading, error);
+  const [newsList, setNewsList] = useRecoilState(newsListState);
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      setNewsList(data);
+    }
+  }, [data, setNewsList]);
 
   return (
     <StyledDiv>
+      {loading && <div>Loading...</div>}
+      {error && <div>{error}</div>}
       <Header />
-      <Main />
+      {newsList && <Main />}
     </StyledDiv>
   );
 };
