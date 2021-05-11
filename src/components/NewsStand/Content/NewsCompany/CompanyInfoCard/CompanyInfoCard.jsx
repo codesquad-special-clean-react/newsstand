@@ -8,16 +8,34 @@ const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
   const [myNewsStandList, setMyNewsStandList] = useRecoilState(myNewsSubscribeState);
   const isSubscribeCompany = myNewsStandList.some((subscribeId) => subscribeId === id);
 
-  const handleSubscribe = () => setMyNewsStandList((subscribeList) => [...subscribeList, i]);
+  const handleSubscribe = ({
+    target: {
+      dataset: { id },
+    },
+  }) => {
+    setMyNewsStandList((subscribeList) => [...subscribeList, id]);
+  };
 
-  const handleUnSubscribe = () => setMyNewsStandList((list) => list.filter((subscribeId) => subscribeId !== id));
+  const handleUnSubscribe = ({
+    target: {
+      dataset: { id },
+    },
+  }) => setMyNewsStandList((list) => list.filter((subscribeId) => subscribeId !== id));
 
   const SubScribeBtn = () => {
     if (isSubscribeCompany) {
-      return <button onClick={handleUnSubscribe}>{COMPANY_CARD.UNSUBSCRIPTION}</button>;
+      return (
+        <button data-id={id} onClick={handleUnSubscribe}>
+          {COMPANY_CARD.UNSUBSCRIPTION}
+        </button>
+      );
     }
 
-    return <button onClick={handleSubscribe}>{COMPANY_CARD.SUBSCRIPTION}</button>;
+    return (
+      <button data-id={id} onClick={handleSubscribe}>
+        {COMPANY_CARD.SUBSCRIPTION}
+      </button>
+    );
   };
 
   return (
