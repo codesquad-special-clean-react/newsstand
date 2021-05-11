@@ -1,8 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { CgMenuGridR, CgMenu } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
-import { MENU, VIEW_MODE } from '@utils/constant';
+import { MENU, VIEW_MODE, MENU_RUL } from '@utils/constant';
 import { menuState, viewModeState } from '@recoil/state';
 import { useRecoilState } from 'recoil';
 
@@ -18,25 +19,29 @@ const Header = () => {
       <LeftWrapper>
         <Title>{'뉴스스탠드 >'} </Title>
         <MenuGroup>
-          <Menu active={menu === MENU.ALL_NEWS ? 'true' : ''} onClick={onClickMenu(MENU.ALL_NEWS)}>
-            {MENU.ALL_NEWS}
+          <Menu $active={menu === MENU.ALL_NEWS} onClick={onClickMenu(MENU.ALL_NEWS)}>
+            <Link to={MENU_RUL.ALL_NEWS}>{MENU.ALL_NEWS}</Link>
           </Menu>
           <ShortLine />
-          <Menu active={menu === MENU.MY_NEWS ? 'true' : ''} onClick={onClickMenu(MENU.MY_NEWS)}>
-            {MENU.MY_NEWS}
+          <Menu $active={menu === MENU.MY_NEWS} onClick={onClickMenu(MENU.MY_NEWS)}>
+            <Link to={MENU_RUL.MY_NEWS}>{MENU.MY_NEWS}</Link>
           </Menu>
         </MenuGroup>
       </LeftWrapper>
       <RightWrapper>
-        <ViewModeGroup visible={menu === MENU.MY_NEWS ? 'true' : ''}>
-          <BoxMode
-            active={viewMode === VIEW_MODE.BLOCK ? 'true' : ''}
-            onClick={onClickViewMode(VIEW_MODE.BLOCK)}
-          />
-          <ListMode
-            active={viewMode === VIEW_MODE.LIST ? 'true' : ''}
-            onClick={onClickViewMode(VIEW_MODE.LIST)}
-          />
+        <ViewModeGroup $visible={menu === MENU.MY_NEWS}>
+          <Link to={`?viewMode=${VIEW_MODE.BLOCK}`}>
+            <BoxMode
+              $active={viewMode === VIEW_MODE.BLOCK}
+              onClick={onClickViewMode(VIEW_MODE.BLOCK)}
+            />
+          </Link>
+          <Link to={`?viewMode=${VIEW_MODE.LIST}`}>
+            <ListMode
+              $active={viewMode === VIEW_MODE.LIST}
+              onClick={onClickViewMode(VIEW_MODE.LIST)}
+            />
+          </Link>
         </ViewModeGroup>
         <LeftRightButtonGroup>
           <Button>{'<'}</Button>
@@ -78,8 +83,8 @@ const MenuGroup = styled.nav`
 const Menu = styled.span`
   cursor: pointer;
 
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       color: black;
       font-weight: bold;
@@ -99,30 +104,35 @@ const ViewModeGroup = styled.div`
   visibility: hidden;
   align-self: center;
   font-size: 2em;
+  color: rgba(0, 0, 0, 0.1);
 
   & > * {
     margin-left: 1em;
     cursor: pointer;
   }
 
-  ${({ visible }) =>
-    visible &&
+  & a {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  ${({ $visible }) =>
+    $visible &&
     css`
       visibility: visible;
     `}
 `;
 
 const BoxMode = styled(CgMenuGridR)`
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       color: black;
       font-weight: bold;
     `}
 `;
 const ListMode = styled(CgMenu)`
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       color: black;
       font-weight: bold;

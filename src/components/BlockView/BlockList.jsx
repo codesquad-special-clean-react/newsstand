@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import { menuState, newsState } from '@recoil/state';
 import BlockItem from '@blockView/BlockItem';
-import { MENU } from '@src/utils/constant';
+import { MENU } from '@utils/constant';
 
 const BlockList = () => {
   const menu = useRecoilValue(menuState);
@@ -30,7 +30,7 @@ const BlockListWrapper = styled.div`
   ul {
     display: grid;
     grid-template-rows: repeat(1, 100px);
-    grid-template-columns: repeat(6, 16.6%);
+    grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: 100px;
   }
 `;

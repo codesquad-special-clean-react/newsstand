@@ -16,7 +16,8 @@ export const viewModeState = atom({
 // ??
 export const myNewsState = atom({
   key: 'myNewsState',
-  default: [],
+  default: ['032', '056', '293', '011', '904'],
+  // default: [],
 });
 
 export const newsState = selector({
@@ -35,6 +36,20 @@ export const newsState = selector({
       return newsList.map(subscribeNews);
     } catch (error) {
       console.error(`NEWS LIST GET ERROR: ${error}`);
+    }
+  },
+});
+
+export const myNewsListState = selector({
+  key: 'myNewsListState',
+  get: async ({ get }) => {
+    try {
+      const newsList = await getNews();
+      const myNews = get(myNewsState);
+
+      return newsList.filter((news) => myNews.includes(news.id));
+    } catch (error) {
+      console.error(`My News GET ERROR: ${error}`);
     }
   },
 });

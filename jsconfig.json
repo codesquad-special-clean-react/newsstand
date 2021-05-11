@@ -5,6 +5,7 @@
       "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@blockView/*": ["src/components/BlockView/*"],
+      "@listView/*": ["src/components/ListView/*"],
       "@theme/*": ["src/theme/*"],
       "@utils/*": ["src/utils/*"],
       "@recoil/*": ["src/recoil/*"],
