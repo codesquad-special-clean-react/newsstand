@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import {
   NewsList,
   NewsPublisherTitle,
@@ -7,23 +7,11 @@ import {
   NewsShowingViewWrapper,
   NewsThumb,
 } from './NewsContent.style';
-import { myTargetNewsSelector } from '@recoil/news';
+import { myTargetNewsSelector } from '@recoilStore/news';
 import { useRecoilValue } from 'recoil';
-import { HistoryContext } from '@router';
 
 const NewsContent = () => {
-  const { setCurrentPath } = useContext(HistoryContext);
   const newsInfo = useRecoilValue(myTargetNewsSelector);
-
-  useEffect(() => {
-    if (newsInfo.length === 0) {
-      const state = {
-        to: '/newscompany',
-      };
-      window.history.pushState(state, '', state.to);
-      setCurrentPath(state.to);
-    }
-  }, [newsInfo]);
 
   if (newsInfo.length === 0) return null;
 

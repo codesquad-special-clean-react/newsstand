@@ -29,11 +29,9 @@ const NewsPublisher = styled.li`
 
 const SubscribingCompany = ({ id, company, myTargetNews, setMyTargetNews }) => {
   const isContentNewsCompany = id === myTargetNews;
-  const handleClick = () => {
-    setMyTargetNews(id);
-  };
+  const handleClick = ({ target: { id } }) => setMyTargetNews(id);
   return (
-    <NewsPublisher isContentNewsCompany={isContentNewsCompany} onClick={handleClick}>
+    <NewsPublisher id={id} isContentNewsCompany={isContentNewsCompany} onClick={handleClick}>
       {company}
     </NewsPublisher>
   );
