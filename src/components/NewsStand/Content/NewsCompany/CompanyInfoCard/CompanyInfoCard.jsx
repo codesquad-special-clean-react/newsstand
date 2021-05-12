@@ -1,26 +1,26 @@
 import React from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { myNewsSubscribeState } from '@recoilStore/news';
 import { Card, CardBtn } from './CompanyInfoCard.style';
 import { COMPANY_CARD } from '@utils/constant';
+import { useSubscribe } from '@hooks/useSubscribe';
 
 const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
-  const [myNewsStandList, setMyNewsStandList] = useRecoilState(myNewsSubscribeState);
+  const myNewsStandList = useRecoilValue(myNewsSubscribeState);
   const isSubscribeCompany = myNewsStandList.some((subscribeId) => subscribeId === id);
+  const { onSubscribe, onUnSubscribe } = useSubscribe();
 
   const handleSubscribe = ({
     target: {
       dataset: { id },
     },
-  }) => {
-    setMyNewsStandList((subscribeList) => [...subscribeList, id]);
-  };
+  }) => onSubscribe(id);
 
   const handleUnSubscribe = ({
     target: {
       dataset: { id },
     },
-  }) => setMyNewsStandList((list) => list.filter((subscribeId) => subscribeId !== id));
+  }) => onUnSubscribe(id);
 
   const SubScribeBtn = () => {
     if (isSubscribeCompany) {

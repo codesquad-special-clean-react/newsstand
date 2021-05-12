@@ -15,7 +15,7 @@ export const useTimer = ({ path, moveNewsCompany }) => {
     if (isMySubscribeNewsListMode) {
       const timer = setTimeout(() => {
         moveNewsCompany();
-      }, 1000);
+      }, 5000);
 
       setTimerId(timer);
     }

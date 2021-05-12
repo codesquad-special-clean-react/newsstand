@@ -4,8 +4,7 @@ import { myNewsModeState } from '@recoilStore/news';
 import { useSetRecoilState } from 'recoil';
 import { DirectionBtnWrap, HeaderWrap, MyNewsBtnWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from './Header.style';
 import { HEADER_BTN, MODE } from '@utils/constant';
-import { useNewsMove, usePath, useTimer } from '@hooks';
-import { usePaging } from '../../../hooks/usePaging';
+import { useNewsMove, usePaging, usePath, useTimer } from '@hooks';
 
 const Header = () => {
   const { path } = usePath();
