@@ -1,15 +1,43 @@
 import { atom, selector } from 'recoil';
 import { newsFetcher } from '@utils/api';
 import { MODE } from '@utils/constant';
+import { getPagingIndex } from '../utils/paging';
 
 export const pathState = atom({
   key: 'pathState',
   default: '/newscompany',
 });
 
+export const movingState = atom({
+  key: 'movingState',
+  default: false,
+});
+
+export const newsPageState = atom({
+  key: 'newsPageState',
+  default: 0,
+});
+
+export const newsPageSelector = selector({
+  key: 'newsPageSelector',
+  get: ({ get }) => get(newsPageState),
+  set: ({ set }, newValue) => {
+    set(newsPageState, newValue);
+    set(movingState, false);
+  },
+});
+export const newsFetchState = atom({
+  key: 'newsFetchState',
+  default: newsFetcher.get(),
+});
+
 export const newsFetchSelector = selector({
   key: 'newsSelector',
-  get: async ({}) => newsFetcher.get(),
+  get: async ({ get }) => {
+    const newsList = get(newsFetchState);
+    const { start, end } = getPagingIndex(get(newsPageState));
+    return newsList.slice(start, end);
+  },
 });
 
 export const myNewsSubscribeState = atom({

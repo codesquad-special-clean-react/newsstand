@@ -1,5 +1,6 @@
 export const LOADING = 'Loading...';
 
+export const COUNT_PER_PAGE = 15;
 export const MODE = {
   LIST: 'LIST',
   CARD: 'CARD',
