@@ -5,15 +5,19 @@ import { useSetRecoilState } from 'recoil';
 import { DirectionBtnWrap, HeaderWrap, MyNewsBtnWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from './Header.style';
 import { HEADER_BTN, MODE } from '@utils/constant';
 import { useNewsMove, usePath, useTimer } from '@hooks';
+import { usePaging } from '../../../hooks/usePaging';
 
 const Header = () => {
   const { path } = usePath();
   const { moveNewsCompany } = useNewsMove();
+  const { movePaging } = usePaging();
   const setNewsMode = useSetRecoilState(myNewsModeState);
-
   useTimer({ path, moveNewsCompany });
 
-  const handleClickArrow = ({ target: { name } }) => moveNewsCompany(name);
+  const handleClickArrow = ({ target: { name } }) => {
+    if (path === routes.mynews.path) return moveNewsCompany(name);
+    if (path === routes.newscompany.path) return movePaging(name);
+  };
 
   const changeViewMode = ({ target: { name } }) => setNewsMode(name);
 

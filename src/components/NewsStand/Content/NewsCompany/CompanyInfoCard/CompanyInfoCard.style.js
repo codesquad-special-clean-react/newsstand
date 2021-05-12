@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const Card = styled.div`
+  box-sizing: border-box;
   height: 65px;
-  width: 16.42%;
+  width: calc(100% / 5);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1px;
   background-color: #f7f9fa;
   border: 1px solid rgb(218, 225, 230);
 
