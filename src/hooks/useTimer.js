@@ -21,5 +21,4 @@ export const useTimer = ({ path, moveNewsCompany }) => {
     }
     return () => clearTimeout(timerId);
   }, [targetId]);
-  return {};
 };
