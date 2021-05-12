@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
-import App from './App';
+import App from './app/App';
 import { theme } from './theme';
 
 if (process.env.NODE_ENV === 'development') {
