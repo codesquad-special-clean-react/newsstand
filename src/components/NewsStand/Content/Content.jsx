@@ -4,16 +4,6 @@ import MyNews from './MyNews/MyNews';
 import NewsCompany from './NewsCompany/NewsCompany';
 import { Route, routes } from '@utils/Router';
 
-const Main = styled.main`
-  box-sizing: border-box;
-  width: 100%;
-  height: 260px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: flex-start;
-`;
-
 const Content = () => {
   return (
     <Main>
@@ -28,3 +18,13 @@ const Content = () => {
 };
 
 export default Content;
+
+const Main = styled.main`
+  box-sizing: border-box;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+`;

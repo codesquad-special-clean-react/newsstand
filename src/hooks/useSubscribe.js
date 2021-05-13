@@ -1,8 +1,8 @@
 import { useSetRecoilState } from 'recoil';
-import { myNewsSubscribeState } from '@recoilStore/news';
+import { mySubscribeNewsCompanyList } from '@recoilStore/news';
 
 export const useSubscribe = () => {
-  const setMyNewsStandList = useSetRecoilState(myNewsSubscribeState);
+  const setMyNewsStandList = useSetRecoilState(mySubscribeNewsCompanyList);
 
   const onSubscribe = (id) => {
     setMyNewsStandList((subscribeList) => [...subscribeList, id]);

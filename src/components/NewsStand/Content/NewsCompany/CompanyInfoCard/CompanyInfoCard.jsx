@@ -1,12 +1,12 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { myNewsSubscribeState } from '@recoilStore/news';
+import { mySubscribeNewsCompanyList } from '@recoilStore/news';
 import { Card, CardBtn } from './CompanyInfoCard.style';
 import { COMPANY_CARD } from '@utils/constant';
 import { useSubscribe } from '@hooks/useSubscribe';
 
-const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
-  const myNewsStandList = useRecoilValue(myNewsSubscribeState);
+const SubScribeBtn = ({ id }) => {
+  const myNewsStandList = useRecoilValue(mySubscribeNewsCompanyList);
   const isSubscribeCompany = myNewsStandList.some((subscribeId) => subscribeId === id);
   const { onSubscribe, onUnSubscribe } = useSubscribe();
 
@@ -22,27 +22,27 @@ const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
     },
   }) => onUnSubscribe(id);
 
-  const SubScribeBtn = () => {
-    if (isSubscribeCompany) {
-      return (
-        <button data-id={id} onClick={handleUnSubscribe}>
-          {COMPANY_CARD.UNSUBSCRIPTION}
-        </button>
-      );
-    }
-
+  if (isSubscribeCompany) {
     return (
-      <button data-id={id} onClick={handleSubscribe}>
-        {COMPANY_CARD.SUBSCRIPTION}
+      <button data-id={id} onClick={handleUnSubscribe}>
+        {COMPANY_CARD.UNSUBSCRIPTION}
       </button>
     );
-  };
+  }
 
+  return (
+    <button data-id={id} onClick={handleSubscribe}>
+      {COMPANY_CARD.SUBSCRIPTION}
+    </button>
+  );
+};
+
+const CompanyInfoCard = ({ id, company, logoImgUrl }) => {
   return (
     <Card>
       <img alt={company} src={logoImgUrl} loading="lazy" />
       <CardBtn className="popup_wrap">
-        <SubScribeBtn />
+        <SubScribeBtn id={id} />
         <button>{COMPANY_CARD.READ_NEWS}</button>
       </CardBtn>
     </Card>

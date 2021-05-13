@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import { NewsStandListWrap, NewsStandNav } from './NewsStandList.style';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { mySubscribeNewsCompanyListSelector, myTargetNewsSelector } from '@recoilStore/news';
+import { currentNewsSelector, mySubscribeNewsCompanyListSelector } from '@recoilStore/news';
 import SubscribingCompany from './SubscribingCompany/SubscribingCompany';
 
 const NewsStandList = () => {
-  const [myTargetNews, setMyTargetNews] = useRecoilState(myTargetNewsSelector);
+  const [currentNews, setCurrentNews] = useRecoilState(currentNewsSelector);
   const companyNameList = useRecoilValue(mySubscribeNewsCompanyListSelector);
 
   useEffect(() => {
-    setMyTargetNews(companyNameList[0]?.id);
+    setCurrentNews(companyNameList[0]?.id);
   }, []);
 
   const NewsPublishers = () => {
     if (companyNameList.length) {
       return companyNameList.map(({ id, company }) => (
-        <SubscribingCompany key={id} {...{ id, company, myTargetNews, setMyTargetNews }} />
+        <SubscribingCompany key={id} {...{ id, company, myTargetNews: currentNews, setMyTargetNews: setCurrentNews }} />
       ));
     }
     return null;

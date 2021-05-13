@@ -1,6 +1,18 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+const SubscribingCompany = ({ id, company, myTargetNews, setMyTargetNews }) => {
+  const isContentNewsCompany = id === myTargetNews;
+  const changeCurrentNews = ({ target: { id } }) => setMyTargetNews(id);
+  return (
+    <NewsPublisher id={id} isContentNewsCompany={isContentNewsCompany} onClick={changeCurrentNews}>
+      {company}
+    </NewsPublisher>
+  );
+};
+
+export default SubscribingCompany;
+
 const NewsPublisher = styled.li`
   box-sizing: border-box;
   text-align: center;
@@ -26,17 +38,3 @@ const NewsPublisher = styled.li`
     text-decoration: underline;
   }
 `;
-
-const SubscribingCompany = ({ id, company, myTargetNews, setMyTargetNews }) => {
-  const isContentNewsCompany = id === myTargetNews;
-  const handleClick = ({ target: { id } }) => {
-    setMyTargetNews(id);
-  };
-  return (
-    <NewsPublisher id={id} isContentNewsCompany={isContentNewsCompany} onClick={handleClick}>
-      {company}
-    </NewsPublisher>
-  );
-};
-
-export default SubscribingCompany;

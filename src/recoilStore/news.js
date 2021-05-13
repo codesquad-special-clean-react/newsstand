@@ -1,42 +1,43 @@
 import { atom, selector } from 'recoil';
 import { newsFetcher } from '@utils/api';
-import { MODE } from '@utils/constant';
-import { getPagingIndex } from '../utils/paging';
+import { CAROUSEL_WIDTH, MODE } from '@utils/constant';
+import { getPagingIndex } from '@utils/paging';
 
 export const pathState = atom({
   key: 'pathState',
   default: '/newscompany',
 });
 
-export const movingState = atom({
-  key: 'movingState',
-  default: false,
-});
-
-export const newsPageState = atom({
-  key: 'newsPageState',
+export const CompanyListPageState = atom({
+  key: 'CompanyListPageState',
   default: 0,
 });
 
-export const newsPageSelector = selector({
-  key: 'newsPageSelector',
-  get: ({ get }) => get(newsPageState),
-  set: ({ set }, newValue) => {
-    set(newsPageState, newValue);
-    set(movingState, false);
+export const CompanyListPageMovingState = atom({
+  key: 'CompanyListPageMovingState',
+  default: false,
+});
+
+export const CompanyListPageSelector = selector({
+  key: 'CompanyListPageSelector',
+  get: ({ get }) => get(CompanyListPageState),
+  set: ({ set }, page) => {
+    set(CompanyListPageState, page);
+    set(CompanyListPageMovingState, false);
   },
 });
+
 export const newsFetchState = atom({
   key: 'newsFetchState',
-  default: newsFetcher.get(),
+  default: newsFetcher.get() || [],
 });
 
 export const newsFetchSelector = selector({
   key: 'newsSelector',
   get: async ({ get }) => {
-    const newsList = get(newsFetchState);
-    const { start, end } = getPagingIndex(get(newsPageState));
-    if (newsList) {
+    const newsList = await get(newsFetchState);
+    if (newsList.length) {
+      const { start, end } = getPagingIndex(get(CompanyListPageState));
       return newsList.slice(start, end);
     }
 
@@ -44,45 +45,43 @@ export const newsFetchSelector = selector({
   },
 });
 
-export const myNewsSubscribeState = atom({
-  key: 'myNewsSubscribeState',
+export const mySubscribeNewsCompanyList = atom({
+  key: 'mySubscribeNewsCompanyList',
   default: [],
 });
 
 export const mySubscribeNewsCompanyListSelector = selector({
   key: 'mySubscribeNewsCompanyListSelector',
   get: ({ get }) => {
-    const newsList = get(newsFetchSelector);
-    const subscribeList = get(myNewsSubscribeState);
+    const newsList = get(newsFetchState);
+    const subscribeList = get(mySubscribeNewsCompanyList);
     return subscribeList.map((id) => {
       return newsList.filter(({ id: companyId }) => companyId === id)[0];
     });
   },
 });
 
-export const myTargetNewsState = atom({
-  key: 'myTargetNews',
+export const currentNewsState = atom({
+  key: 'currentNewsState',
   default: '',
 });
 
-export const myTargetNewsSelector = selector({
-  key: 'myTargetNewsSelector',
-  get: ({ get }) => get(myTargetNewsState),
-  set: ({ get, set }, newTargetId) => {
+export const currentNewsSelector = selector({
+  key: 'currentNewsSelector',
+  get: ({ get }) => get(currentNewsState),
+  set: ({ get, set }, newTargetId = undefined) => {
     const companyList = get(mySubscribeNewsCompanyListSelector);
     let targetIdx = 0;
-    companyList.forEach(({ id }, idx) => {
-      if (id === newTargetId) {
-        targetIdx = idx;
-      }
-    });
-    set(carouselXSelector, -targetIdx * 1050);
-    set(myTargetNewsState, newTargetId);
+    if (newTargetId) {
+      companyList.forEach(({ id }, idx) => id === newTargetId && (targetIdx = idx));
+    }
+    set(carouselXSelector, -targetIdx * CAROUSEL_WIDTH);
+    set(currentNewsState, newTargetId);
   },
 });
 
-export const myNewsModeState = atom({
-  key: 'myNewsModeState',
+export const viewModeState = atom({
+  key: 'viewModeState',
   default: MODE.LIST,
 });
 
@@ -90,6 +89,7 @@ export const timerIdState = atom({
   key: 'timerIdState',
   default: '',
 });
+
 export const carouselXState = atom({
   key: 'carouselXState',
   default: 0,
@@ -98,6 +98,16 @@ export const carouselXState = atom({
 export const carouselMoveState = atom({
   key: 'carouselMoveState',
   default: false,
+});
+
+export const transitionState = atom({
+  key: 'transitionState',
+  default: 'all .5s',
+});
+
+export const transitionSelector = selector({
+  key: 'transitionSelector',
+  get: ({ get }) => get(transitionState),
 });
 
 export const carouselXSelector = selector({

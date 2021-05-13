@@ -55,6 +55,7 @@ const NewsRow = styled.li`
 const UnSubscribeBtn = styled.button`
   background: none;
   border: none;
+  line-height: 2;
   cursor: pointer;
 `;
 

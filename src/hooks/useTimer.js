@@ -1,24 +1,24 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { myNewsModeState, myTargetNewsSelector, timerIdState } from '@recoilStore/news';
+import { currentNewsSelector, timerIdState, viewModeState } from '@recoilStore/news';
 import { useEffect } from 'react';
 import { routes } from '@router';
-import { MODE } from '../utils/constant';
+import { MODE, TIMEOUT } from '@utils/constant';
 
-export const useTimer = ({ path, moveNewsCompany }) => {
+export const useTimer = ({ path, changeCurrentNews }) => {
   const [timerId, setTimerId] = useRecoilState(timerIdState);
-  const targetId = useRecoilValue(myTargetNewsSelector);
-  const viewMode = useRecoilValue(myNewsModeState);
+  const currentNewsTarget = useRecoilValue(currentNewsSelector);
+  const viewMode = useRecoilValue(viewModeState);
 
   useEffect(() => {
     clearTimeout(timerId);
     const isMySubscribeNewsListMode = path === routes.mynews.path && viewMode === MODE.LIST;
     if (isMySubscribeNewsListMode) {
       const timer = setTimeout(() => {
-        moveNewsCompany();
-      }, 5000);
+        changeCurrentNews();
+      }, TIMEOUT);
 
       setTimerId(timer);
     }
     return () => clearTimeout(timerId);
-  }, [targetId]);
+  }, [currentNewsTarget]);
 };
