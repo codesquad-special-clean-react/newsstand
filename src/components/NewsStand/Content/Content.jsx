@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import MyNews from './MyNews/MyNews';
-import NewsCompany from './NewsCompany/NewsCompany';
 import { Route, routes } from '@utils/Router';
+import { FallBack } from '@utils/constant';
+import NewsCompany from './NewsCompany/NewsCompany';
 
 const Content = () => {
+  const MyNewsLazy = React.lazy(() => import('./MyNews/MyNews'));
   return (
     <Main>
       <Route path={routes.newscompany.path}>
         <NewsCompany />
       </Route>
       <Route path={routes.mynews.path}>
-        <MyNews />
+        <React.Suspense fallback={FallBack}>
+          <MyNewsLazy />
+        </React.Suspense>
       </Route>
     </Main>
   );

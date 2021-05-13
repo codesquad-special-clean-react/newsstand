@@ -1,4 +1,7 @@
-export const LOADING = 'Loading...';
+import React from 'react';
+
+const LOADING = 'Loading...';
+export const FallBack = <div>{LOADING}</div>;
 
 export const COUNT_PER_PAGE = 15;
 export const CAROUSEL_WIDTH = 1050;
