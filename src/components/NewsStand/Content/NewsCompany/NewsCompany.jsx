@@ -6,11 +6,11 @@ import CompanyInfoCard from './CompanyInfoCard/CompanyInfoCard';
 const NewsCompany = () => {
   const fetchCompanyList = useRecoilValue(newsFetchSelector);
 
-  const NewsCompanyList = fetchCompanyList.map(({ id, company, logoImgUrl }) => (
+  const newsCompanyList = fetchCompanyList.map(({ id, company, logoImgUrl }) => (
     <CompanyInfoCard key={id} {...{ id, company, logoImgUrl }} />
   ));
 
-  return NewsCompanyList;
+  return <>{newsCompanyList}</>;
 };
 
 export default NewsCompany;

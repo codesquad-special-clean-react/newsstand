@@ -8,22 +8,10 @@ import {
   NewsThumb,
   UnSubscribeBtn,
 } from './NewsContent.style';
-import { myTargetNewsSelector } from '@recoilStore/news';
-import { useRecoilValue } from 'recoil';
 import { useSubscribe } from '@hooks';
 
-const NewsContent = () => {
-  const newsInfo = useRecoilValue(myTargetNewsSelector);
+const NewsContent = ({ id, company, thumbnews, newslist }) => {
   const { onUnSubscribe } = useSubscribe();
-
-  if (newsInfo.length === 0) return null;
-
-  const {
-    id,
-    company,
-    thumbnews: { imageUrl, text },
-    newslist,
-  } = newsInfo[0];
 
   const handleUnSubscribe = ({
     target: {
@@ -43,8 +31,8 @@ const NewsContent = () => {
       </NewsPublisherTitle>
       <NewsShowingView>
         <NewsThumb>
-          <img src={imageUrl} alt={text} />
-          <div>{text}</div>
+          <img src={thumbnews.imageUrl} alt={thumbnews.text} />
+          <div>{thumbnews.text}</div>
         </NewsThumb>
         <NewsList>{NewsTitles}</NewsList>
       </NewsShowingView>

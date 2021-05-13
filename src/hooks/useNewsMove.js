@@ -1,9 +1,9 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { myNewsSubscribeState, myTargetNewsState } from '@recoilStore/news';
+import { myNewsSubscribeState, myTargetNewsSelector } from '@recoilStore/news';
 import { HEADER_BTN } from '@utils/constant';
 
 export const useNewsMove = () => {
-  const [targetId, setTargetId] = useRecoilState(myTargetNewsState);
+  const [targetId, setTargetId] = useRecoilState(myTargetNewsSelector);
   const subscribeList = useRecoilValue(myNewsSubscribeState);
 
   const prevNewsTarget = (currentNewsCompanyIdx, subscribeListLen) => {

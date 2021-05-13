@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
-const NewsShowingViewWrapper = styled.section`
-  width: calc(100% - 163px);
+const NewsShowingViewWrapper = styled.li`
+  box-sizing: border-box;
+  width: 1050px;
   height: 100%;
   padding: 17px 24px;
   overflow: hidden;
   background-color: #f7f9fa;
   border: 1px solid #dae1e6;
+  display: flex;
+  flex-direction: column;
 `;
 
 const NewsPublisherTitle = styled.div`

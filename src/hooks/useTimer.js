@@ -1,12 +1,12 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { myNewsModeState, myTargetNewsState, timerIdState } from '@recoilStore/news';
+import { myNewsModeState, myTargetNewsSelector, timerIdState } from '@recoilStore/news';
 import { useEffect } from 'react';
 import { routes } from '@router';
 import { MODE } from '../utils/constant';
 
 export const useTimer = ({ path, moveNewsCompany }) => {
   const [timerId, setTimerId] = useRecoilState(timerIdState);
-  const targetId = useRecoilValue(myTargetNewsState);
+  const targetId = useRecoilValue(myTargetNewsSelector);
   const viewMode = useRecoilValue(myNewsModeState);
 
   useEffect(() => {

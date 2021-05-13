@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { NewsStandListWrap, NewsStandNav } from './NewsStandList.style';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { mySubscribeNewsCompanyListSelector, myTargetNewsState } from '@recoilStore/news';
+import { mySubscribeNewsCompanyListSelector, myTargetNewsSelector } from '@recoilStore/news';
 import SubscribingCompany from './SubscribingCompany/SubscribingCompany';
 
 const NewsStandList = () => {
-  const [myTargetNews, setMyTargetNews] = useRecoilState(myTargetNewsState);
+  const [myTargetNews, setMyTargetNews] = useRecoilState(myTargetNewsSelector);
   const companyNameList = useRecoilValue(mySubscribeNewsCompanyListSelector);
 
   useEffect(() => {
