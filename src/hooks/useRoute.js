@@ -4,18 +4,20 @@ import { routes } from "../router/routes";
 
 const useRoute = () => {
     const { route } = useContext(RouterContext);
+    const { path } = route;
     const [isMyNewsListSelected, selectMyNewsList] = useState(true);
     const [isMyNewsCardSelected, selectMyNewsCard] = useState(false);
     const [isMyNewsSelected, selectMyNews] = useState(isMyNewsListSelected || isMyNewsCardSelected);
     const [isPressSelected, selectPress] = useState(false);
 
     useEffect(() => {
-        const {path} = route;
+        const { list, card } = routes.mynews;
+        const { total : press } = routes.press;
 
-        selectMyNewsList(path === routes.mynews.list.path);
-        selectMyNewsCard(path === routes.mynews.card.path);
-        selectPress(path === routes.press.total.path);
-    }, [route.path]);
+        selectMyNewsList(path === list.path);
+        selectMyNewsCard(path === card.path);
+        selectPress(path === press.path);
+    }, [path]);
 
     useEffect(() => {
         selectMyNews(isMyNewsListSelected || isMyNewsCardSelected);
