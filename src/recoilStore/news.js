@@ -1,4 +1,4 @@
-import { atom, selector, useSetRecoilState } from 'recoil';
+import { atom, selector } from 'recoil';
 import { newsFetcher } from '@utils/api';
 import { MODE } from '@utils/constant';
 import { getPagingIndex } from '../utils/paging';
@@ -68,16 +68,16 @@ export const myTargetNewsState = atom({
 export const myTargetNewsSelector = selector({
   key: 'myTargetNewsSelector',
   get: ({ get }) => get(myTargetNewsState),
-  set: ({ get, set }, newValue) => {
+  set: ({ get, set }, newTargetId) => {
     const companyList = get(mySubscribeNewsCompanyListSelector);
     let targetIdx = 0;
     companyList.forEach(({ id }, idx) => {
-      if (id === newValue) {
+      if (id === newTargetId) {
         targetIdx = idx;
       }
     });
     set(carouselXSelector, -targetIdx * 1050);
-    set(myTargetNewsState, newValue);
+    set(myTargetNewsState, newTargetId);
   },
 });
 
@@ -103,8 +103,8 @@ export const carouselMoveState = atom({
 export const carouselXSelector = selector({
   key: 'carouselXSelector',
   get: ({ get }) => get(carouselXState),
-  set: ({ set }, newValue) => {
-    set(carouselXState, newValue);
+  set: ({ set }, newPositionWidth) => {
+    set(carouselXState, newPositionWidth);
     set(carouselMoveState, true);
   },
 });

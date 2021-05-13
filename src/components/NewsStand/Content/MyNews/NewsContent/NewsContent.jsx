@@ -9,15 +9,22 @@ import {
   UnSubscribeBtn,
 } from './NewsContent.style';
 import { useSubscribe } from '@hooks';
+import { myTargetNewsSelector, mySubscribeNewsCompanyListSelector } from '@recoilStore/news';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 const NewsContent = ({ id, company, thumbnews, newslist }) => {
   const { onUnSubscribe } = useSubscribe();
+  const setMyTargetNews = useSetRecoilState(myTargetNewsSelector);
+  const companyNameList = useRecoilValue(mySubscribeNewsCompanyListSelector);
 
   const handleUnSubscribe = ({
     target: {
       dataset: { id },
     },
-  }) => onUnSubscribe(id);
+  }) => {
+    onUnSubscribe(id);
+    setMyTargetNews(companyNameList[0]?.id);
+  };
 
   const NewsTitles = newslist.map((title, idx) => <NewsRow key={idx}>{title}</NewsRow>);
 
