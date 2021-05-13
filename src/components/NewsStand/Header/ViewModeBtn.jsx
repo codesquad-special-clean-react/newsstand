@@ -1,13 +1,13 @@
-import React from 'react';
-import { useSetRecoilState } from 'recoil';
+import React, { useCallback } from 'react';
+import { useRecoilState } from 'recoil';
 import { MyNewsBtnWrap } from './Header.style';
 import { routes } from '@router';
 import { MODE } from '@utils/constant';
 import { viewModeState } from '@recoilStore/news';
 
 const ViewModeBtn = ({ path }) => {
-  const setNewsMode = useSetRecoilState(viewModeState);
-  const changeViewMode = ({ target: { name } }) => setNewsMode(name);
+  const [newsMode, setNewsMode] = useRecoilState(viewModeState);
+  const changeViewMode = useCallback(({ target: { name } }) => setNewsMode(name), [newsMode]);
 
   if (path === routes.mynews.path) {
     return (
@@ -25,4 +25,4 @@ const ViewModeBtn = ({ path }) => {
   return null;
 };
 
-export default ViewModeBtn;
+export default React.memo(ViewModeBtn);

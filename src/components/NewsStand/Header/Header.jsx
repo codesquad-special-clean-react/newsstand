@@ -37,5 +37,4 @@ const Header = () => {
     </HeaderWrap>
   );
 };
-
-export default Header;
+export default React.memo(Header);

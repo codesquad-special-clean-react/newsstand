@@ -15,7 +15,7 @@ const NewsStandList = () => {
   const NewsPublishers = () => {
     if (companyNameList.length) {
       return companyNameList.map(({ id, company }) => (
-        <SubscribingCompany key={id} {...{ id, company, myTargetNews: currentNews, setMyTargetNews: setCurrentNews }} />
+        <SubscribingCompany key={id} {...{ id, company, currentNews, setCurrentNews }} />
       ));
     }
     return null;

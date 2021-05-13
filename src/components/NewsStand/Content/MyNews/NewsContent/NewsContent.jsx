@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   NewsList,
   NewsPublisherTitle,
@@ -17,14 +17,17 @@ const NewsContent = ({ id, company, thumbnews: { imageUrl, text }, newslist }) =
   const setMyTargetNews = useSetRecoilState(currentNewsSelector);
   const companyNameList = useRecoilValue(mySubscribeNewsCompanyListSelector);
 
-  const handleUnSubscribe = ({
-    target: {
-      dataset: { id },
+  const handleUnSubscribe = useCallback(
+    ({
+      target: {
+        dataset: { id },
+      },
+    }) => {
+      onUnSubscribe(id);
+      setMyTargetNews(companyNameList[0]?.id);
     },
-  }) => {
-    onUnSubscribe(id);
-    setMyTargetNews(companyNameList[0]?.id);
-  };
+    [id]
+  );
 
   const NewsTitles = newslist.map((title, idx) => <NewsRow key={idx}>{title}</NewsRow>);
 
@@ -47,4 +50,7 @@ const NewsContent = ({ id, company, thumbnews: { imageUrl, text }, newslist }) =
   );
 };
 
-export default NewsContent;
+const NewsContentMemo = React.memo(NewsContent, (prev, next) => {
+  return prev.id === next.id;
+});
+export default NewsContentMemo;
