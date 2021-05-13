@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link, routes } from '@utils/Router';
 import { DirectionBtnWrap, HeaderWrap, NewsStandSortBtnWrap, RightControlBtnWrap } from './Header.style';
 import { HEADER_BTN } from '@utils/constant';
@@ -11,11 +11,14 @@ const Header = () => {
   const { changeCompanyList } = useCompnyListChange();
   useTimer({ path, changeCurrentNews });
 
-  const handleClickArrow = ({ target: { name } }) => {
-    if (path === routes.mynews.path) return changeCurrentNews(name);
+  const handleClickArrow = useCallback(
+    ({ target: { name } }) => {
+      if (path === routes.mynews.path) return changeCurrentNews(name);
 
-    if (path === routes.newscompany.path) return changeCompanyList(name);
-  };
+      if (path === routes.newscompany.path) return changeCompanyList(name);
+    },
+    [path]
+  );
 
   return (
     <HeaderWrap>
