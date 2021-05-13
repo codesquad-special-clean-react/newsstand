@@ -56,6 +56,6 @@ const CarouselComponent = styled.div`
   display: flex;
   justify-content: flex-start;
   height: 100%;
-  width: 1050px;
+  max-width: 1050px;
   overflow: hidden;
 `;

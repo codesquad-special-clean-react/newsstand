@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Card = styled.div`
   box-sizing: border-box;
   height: 65px;
-  width: calc(100% / 5);
+  width: calc(1200px / 5);
   display: flex;
   justify-content: center;
   align-items: center;

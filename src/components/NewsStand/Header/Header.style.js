@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const HeaderWrap = styled.header`
   height: 56px;
+  max-width: 1220px;
   display: flex;
   justify-content: space-between;
   align-items: center;

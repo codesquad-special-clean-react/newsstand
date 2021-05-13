@@ -21,7 +21,7 @@ export default Content;
 
 const Main = styled.main`
   box-sizing: border-box;
-  width: 100%;
+  max-width: 1250px;
   height: 260px;
   display: flex;
   flex-wrap: wrap;
