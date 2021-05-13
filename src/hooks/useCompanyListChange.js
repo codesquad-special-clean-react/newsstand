@@ -2,7 +2,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CompanyListPageMovingState, CompanyListPageSelector, newsFetchState } from '@recoilStore/news';
 import { HEADER_BTN } from '@utils/constant';
 
-export const useCompnyListChange = () => {
+export const useCompanyListChange = () => {
   const setMoving = useSetRecoilState(CompanyListPageMovingState);
   const [page, setPage] = useRecoilState(CompanyListPageSelector);
   const newsListLen = useRecoilValue(newsFetchState).length;
