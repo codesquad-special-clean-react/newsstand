@@ -12,6 +12,7 @@ const NewsShowingViewWrapper = styled.section`
 const NewsPublisherTitle = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   height: 20px;
 `;
 
@@ -48,4 +49,10 @@ const NewsRow = styled.li`
   white-space: nowrap;
 `;
 
-export { NewsShowingViewWrapper, NewsPublisherTitle, NewsShowingView, NewsThumb, NewsList, NewsRow };
+const UnSubscribeBtn = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+export { NewsShowingViewWrapper, NewsPublisherTitle, NewsShowingView, NewsThumb, NewsList, NewsRow, UnSubscribeBtn };

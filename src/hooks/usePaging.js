@@ -5,7 +5,8 @@ import { HEADER_BTN } from '@utils/constant';
 export const usePaging = () => {
   const [moving, setMoving] = useRecoilState(movingState);
   const [page, setPage] = useRecoilState(newsPageSelector);
-  const lastPageIdx = Math.floor(useRecoilValue(newsFetchState).length / 15);
+  const newsListLen = useRecoilValue(newsFetchState) ? useRecoilValue(newsFetchState).length : 0;
+  const lastPageIdx = Math.floor(newsListLen / 15);
 
   const movePaging = (action = HEADER_BTN.NEXT.title) => {
     if (moving) return;

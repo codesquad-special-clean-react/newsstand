@@ -36,7 +36,11 @@ export const newsFetchSelector = selector({
   get: async ({ get }) => {
     const newsList = get(newsFetchState);
     const { start, end } = getPagingIndex(get(newsPageState));
-    return newsList.slice(start, end);
+    if (newsList) {
+      return newsList.slice(start, end);
+    }
+
+    return [];
   },
 });
 

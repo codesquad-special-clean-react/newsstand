@@ -6,6 +6,7 @@ import {
   NewsShowingView,
   NewsShowingViewWrapper,
   NewsThumb,
+  UnSubscribeBtn,
 } from './NewsContent.style';
 import { myTargetNewsSelector } from '@recoilStore/news';
 import { useRecoilValue } from 'recoil';
@@ -36,9 +37,9 @@ const NewsContent = () => {
     <NewsShowingViewWrapper>
       <NewsPublisherTitle>
         <span>{company}</span>
-        <button data-id={id} onClick={handleUnSubscribe}>
+        <UnSubscribeBtn data-id={id} onClick={handleUnSubscribe}>
           X
-        </button>
+        </UnSubscribeBtn>
       </NewsPublisherTitle>
       <NewsShowingView>
         <NewsThumb>
