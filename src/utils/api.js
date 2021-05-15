@@ -26,9 +26,9 @@ async function getRequest(url) {
   return await request('get', url);
 }
 
-async function requestNewData () {
+async function requestNewsData () {
     const url = '/newsdata.json';
     return await getRequest(url);
 }
 
-export { requestNewData };
+export { requestNewsData };

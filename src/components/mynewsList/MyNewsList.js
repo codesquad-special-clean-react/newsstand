@@ -1,11 +1,16 @@
-import React from 'react';
+import useNewsData from '../../hooks/useNewsData';
+import * as Styled from './MyNewsList.style';
+import NewsContainer from './NewsContainer';
+import PressList from './PressList';
 
 const MyNewsList = () => {
-    console.log("마이뉴스 목록형")
+    const { presses, selectedPressIdx, selectPressIdx, newsList, thumbNews } = useNewsData();
+
     return (
-        <div>
-            My news list
-        </div>
+        <Styled.MyNewsListContainer>
+            <PressList presses={presses} selectedPressIdx={selectedPressIdx} selectPressIdx={selectPressIdx} />
+            <NewsContainer newsList={newsList} thumbNews={thumbNews}/>
+        </Styled.MyNewsListContainer>
     );
 };
 
