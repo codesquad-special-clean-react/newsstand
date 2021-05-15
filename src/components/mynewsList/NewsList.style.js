@@ -11,7 +11,6 @@ const Ul = styled.ul`
 const Li = styled.li`
     list-style-type: none;
     margin: 10px 0;
-    /* font-size: 13px; */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

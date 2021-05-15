@@ -7,34 +7,34 @@ const useNewsData = (pageSize = 5) => {
     const [presses, setPress] = useState([]);
     const [newsList, setNewsList] = useState([]);
     const [thumbNews, setThumbNews] = useState({ imageUrl : '', text : '' });
+    const [pressLogoUrls, setPressLogoUrls] = useState([]);
 
     const [page, setPage] = useState(0);
     const [maximumPage, setMaximumPage] = useState(0);
     const [selectedPressIdx, selectPressIdx] = useState(0);
 
-    const pressesForPage = (pressList) => {
+    const getItemsForPage = (items) => {
         const startIndex = page * pageSize;
         const endIndex = startIndex + pageSize;
-        return pressList.slice(startIndex, endIndex);
+        return items.slice(startIndex, endIndex);
     }
 
     const getNewsOfPress = (press) => {
-        console.log(press, newsData)
         return newsData.filter(({ company }) => company === press);
     }
 
     useEffect(() => {
         setMaximumPage(Math.ceil(newsData.length / pageSize) - 1);
 
-        const uniquePresses = newsData.map(({ company }) => company);
-        setPress(pressesForPage(uniquePresses));
+        setPress(getItemsForPage(newsData.map(({ company }) => company)));
+        setPressLogoUrls(getItemsForPage(newsData.map(({ logoImgUrl }) => logoImgUrl)));
     }, [newsData, pageSize]);
 
     useEffect(() => {
         if(newsData.length === 0) return;
         const pressName = presses[selectedPressIdx];
         const [news] = getNewsOfPress(pressName);
-        console.log(news)
+
         setNewsList(news.newslist);
         setThumbNews(news.thumbnews);
         
@@ -43,7 +43,7 @@ const useNewsData = (pageSize = 5) => {
     const pageUp = setPage.bind(null, page === maximumPage ? page : page + 1);
     const pageDown = setPage.bind(null, page === 0 ? 0 : page - 1);
 
-    return { presses, pageUp, pageDown, selectedPressIdx, selectPressIdx, thumbNews, newsList };
+    return { presses, pressLogoUrls, pageUp, pageDown, selectedPressIdx, selectPressIdx, thumbNews, newsList };
 }
 
 export default useNewsData;

@@ -1,12 +1,16 @@
 const size = {
-    totalWidth: '800px',
+    totalWidth: '900px',
     totalHeight: '500px',
     listview: {
         pressWidth: '150px',
-        newsWidth: '650px',
-        imageWidth: '250px',
+        newsWidth: '750px',
+        imageWidth: '300px',
         imageHeight: '180px',
-        newslistWidth: '400px',
+        newslistWidth: '450px',
+    },
+    cardview: {
+        gridWidth: '150px',
+        gridHeight: '80px'
     }
 }
 
