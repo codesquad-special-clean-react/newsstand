@@ -1,10 +1,8 @@
-import * as Styled from './GridItem.style';
-
-const GridItem = ({ children }) => {
+const GridItem = (props) => {
     return (
-        <Styled.GridItem>
-            { children }
-        </Styled.GridItem>
+        <div { ...props }>
+            { props.children }
+        </div>
     );
 };
 

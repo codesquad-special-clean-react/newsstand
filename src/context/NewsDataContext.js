@@ -6,6 +6,7 @@ const NewsDataContext = createContext(initialNewsData);
 
 const NewsDataContextProvider = ({ children }) => {
     const [newsData, setNewsData] = useState([]);
+    const [subscribedPressList, subscribePress] = useState([]);
 
     useEffect(() => {
         (async () => {
@@ -14,7 +15,7 @@ const NewsDataContextProvider = ({ children }) => {
         })();
     }, []);
 
-    return <NewsDataContext.Provider value={{ newsData, setNewsData }}>
+    return <NewsDataContext.Provider value={{ newsData, setNewsData, subscribedPressList, subscribePress }}>
         { children }
     </NewsDataContext.Provider>
 };
