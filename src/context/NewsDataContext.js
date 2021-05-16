@@ -1,8 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { requestNewsData } from '../utils/api';
 
-const initialNewsData = [];
-const NewsDataContext = createContext(initialNewsData);
+const defaultValue = {
+    newsData: [],
+    setNewsData: () => {},
+    subscribedPressList: [],
+    subscribePress: () => {}
+};
+const NewsDataContext = createContext(defaultValue);
 
 const NewsDataContextProvider = ({ children }) => {
     const [newsData, setNewsData] = useState([]);

@@ -45,7 +45,7 @@ const useNewsData = (pageSize = 5) => {
         return subscribedPressList.filter(({id}) => id === pressId).length === 1;
     } 
 
-    return { newsData, presses, pageUp, pageDown, selectedPressIdx, selectPressIdx, thumbNews, newsList, isSubscribed };
+    return { newsData, presses, pageUp, pageDown, selectedPressIdx, selectPressIdx, thumbNews, newsList, isSubscribed, subscribedPressList };
 }
 
 export default useNewsData;

@@ -4,13 +4,13 @@ import GridItem from '../common/GridItem';
 import LogoImage from '../common/LogoImage';
 
 const MyNewsCard = () => {
-    const { pressLogoUrls } = useNewsData(18);
+    const { subscribedPressList } = useNewsData(18);
     return (
         <GridContainer>
             {
-                pressLogoUrls.map((logoUrl) => 
+                subscribedPressList.map(({ logoImgUrl }) => 
                     <GridItem>
-                        <LogoImage logoUrl={ logoUrl }/>
+                        <LogoImage logoUrl={ logoImgUrl }/>
                     </GridItem>)
             }
         </GridContainer>
