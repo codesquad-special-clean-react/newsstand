@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import { useState } from "react/cjs/react.development";
+import { createContext, useState } from "react";
 import { createHistory } from "../router/history";
 import { formatLocationToRoute } from "../router/utils";
 
@@ -11,8 +10,8 @@ const RouterContext = createContext(initialState);
 
 const RouterContextProvider = ({ children }) => {
     const [route, setRoute] = useState(formatLocationToRoute(history.location));
-    
-    return <RouterContext.Provider value={{ route }}>
+
+    return <RouterContext.Provider value={{ route, setRoute }}>
         {children}
     </RouterContext.Provider>
 }

@@ -3,7 +3,7 @@ import { RouterContext } from "../context/RouterContext"
 import { routes } from "../router/routes";
 
 const useRoute = () => {
-    const { route } = useContext(RouterContext);
+    const { route, setRoute } = useContext(RouterContext);
     const { path } = route;
     const [isMyNewsListSelected, selectMyNewsList] = useState(true);
     const [isMyNewsCardSelected, selectMyNewsCard] = useState(false);
@@ -23,7 +23,7 @@ const useRoute = () => {
         selectMyNews(isMyNewsListSelected || isMyNewsCardSelected);
     }, [isMyNewsListSelected, isMyNewsCardSelected]);
 
-    return { route, isMyNewsListSelected, isMyNewsCardSelected, isPressSelected, isMyNewsSelected };
+    return { route, setRoute, isMyNewsListSelected, isMyNewsCardSelected, isPressSelected, isMyNewsSelected };
 };
 
 export default useRoute;

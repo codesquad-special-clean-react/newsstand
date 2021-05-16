@@ -2,7 +2,7 @@ import qs from 'querystringify';
 import { routes } from './routes';
 
 const formatLocationToRoute = ({pathname: path, hash, search}) => {
-    return { path, hash, query: qs.parse(search) }; 
+    return { path, hash, query: search ? qs.parse(search) : undefined }; 
 }
 
 const getRoutesPaths = (() => {

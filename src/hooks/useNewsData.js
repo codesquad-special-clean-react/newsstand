@@ -1,5 +1,4 @@
-import { useContext, useState } from "react"
-import { useEffect } from "react/cjs/react.development";
+import { useContext, useState, useEffect } from "react"
 import { NewsDataContext } from "../context/NewsDataContext"
 
 const useNewsData = (pageSize = 5) => {
@@ -33,8 +32,10 @@ const useNewsData = (pageSize = 5) => {
         const pressName = presses[selectedPressIdx];
         const [news] = getNewsOfPress(pressName);
 
-        setNewsList(news.newslist);
-        setThumbNews(news.thumbnews);
+        if(news) {
+            setNewsList(news.newslist);
+            setThumbNews(news.thumbnews);
+        }
         
     }, [selectedPressIdx, presses]);
 
