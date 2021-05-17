@@ -4,14 +4,14 @@ import { requestNewsData } from '../utils/api';
 const defaultValue = {
     newsData: [],
     setNewsData: () => {},
-    subscribedPressList: [],
-    subscribePress: () => {}
+    subscribedNewsData: [],
+    subscribeNewsData: () => {}
 };
 const NewsDataContext = createContext(defaultValue);
 
 const NewsDataContextProvider = ({ children }) => {
     const [newsData, setNewsData] = useState([]);
-    const [subscribedPressList, subscribePress] = useState([]);
+    const [subscribedNewsData, subscribeNewsData] = useState([]);
 
     useEffect(() => {
         (async () => {
@@ -20,7 +20,7 @@ const NewsDataContextProvider = ({ children }) => {
         })();
     }, []);
 
-    return <NewsDataContext.Provider value={{ newsData, setNewsData, subscribedPressList, subscribePress }}>
+    return <NewsDataContext.Provider value={{ newsData, setNewsData, subscribedNewsData, subscribeNewsData }}>
         { children }
     </NewsDataContext.Provider>
 };

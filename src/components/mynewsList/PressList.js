@@ -1,14 +1,14 @@
 import * as Styled from './PressList.style';
 
-const PressList = ({ presses, selectedPressIdx, selectPressIdx }) => {
+const PressList = ({ subscribedNewsData, selectPressIdx, selectedPressIdx }) => {
     return (
         <Styled.Ul>
-            { presses.map((press, idx) => 
+            { subscribedNewsData.map(({ company, id }) => 
                 <Styled.Li 
-                    key={idx}
-                    isSelected={selectedPressIdx !== idx} 
-                    onClick={selectPressIdx.bind(null, idx)}>
-                    {press}
+                    key={id}
+                    isSelected={selectedPressIdx !== id} 
+                    onClick={selectPressIdx.bind(null, id)}>
+                    {company}
                 </Styled.Li>) }
         </Styled.Ul>
     );

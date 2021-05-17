@@ -2,13 +2,13 @@ import { useContext, useState } from "react";
 import { NewsDataContext } from "../context/NewsDataContext";
 
 const usePress = () => {
-    const { newsData, subscribedPressList, subscribePress } = useContext(NewsDataContext);
+    const { newsData, subscribedNewsData, subscribeNewsData } = useContext(NewsDataContext);
     const [hoveredPressOrders, setHoveredPressOrder] = useState(null);
 
     const handleSubscribe = (pressId) => {
-        const [isSubscribed] = subscribedPressList.filter(({id}) => id === pressId);
+        const [isSubscribed] = subscribedNewsData.filter(({id}) => id === pressId);
         if(isSubscribed) {
-            subscribePress(subscribedPressList.filter(({id}) => id !== pressId));
+            subscribeNewsData(subscribedNewsData.filter(({id}) => id !== pressId));
             return;
         }
 
@@ -17,7 +17,7 @@ const usePress = () => {
             return;
         }
 
-        subscribePress([...subscribedPressList, subscribingPress]);
+        subscribeNewsData([...subscribedNewsData, subscribingPress]);
     }
     
     return { hoveredPressOrders, setHoveredPressOrder, handleSubscribe };

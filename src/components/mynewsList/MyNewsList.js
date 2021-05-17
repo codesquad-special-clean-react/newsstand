@@ -1,15 +1,17 @@
 import useNewsData from '../../hooks/useNewsData';
+import NoSubscribed from '../common/NoSubscribed';
 import * as Styled from './MyNewsList.style';
 import NewsContainer from './NewsContainer';
 import PressList from './PressList';
 
 const MyNewsList = () => {
-    const { presses, selectedPressIdx, selectPressIdx, newsList, thumbNews } = useNewsData();
+    const { subscribedNewsData, selectedPressIdx, selectPressIdx } = useNewsData();
+    if(!subscribedNewsData.length) return <NoSubscribed/>
 
     return (
         <Styled.MyNewsListContainer>
-            <PressList presses={presses} selectedPressIdx={selectedPressIdx} selectPressIdx={selectPressIdx} />
-            <NewsContainer newsList={newsList} thumbNews={thumbNews}/>
+            <PressList subscribedNewsData={subscribedNewsData} selectedPressIdx={selectedPressIdx} selectPressIdx={selectPressIdx}/>
+            <NewsContainer subscribedNewsData={subscribedNewsData} selectedPressIdx={selectedPressIdx}/>
         </Styled.MyNewsListContainer>
     );
 };

@@ -2,14 +2,17 @@ import useNewsData from '../../hooks/useNewsData';
 import GridContainer from '../common/GridContainer';
 import GridItem from '../common/GridItem';
 import LogoImage from '../common/LogoImage';
+import NoSubscribed from '../common/NoSubscribed';
 
 const MyNewsCard = () => {
-    const { subscribedPressList } = useNewsData(18);
+    const { subscribedNewsData } = useNewsData(18);
+    if(!subscribedNewsData.length) return <NoSubscribed/>
+
     return (
         <GridContainer>
             {
-                subscribedPressList.map(({ logoImgUrl }) => 
-                    <GridItem>
+                subscribedNewsData.map(({ logoImgUrl }, idx) => 
+                    <GridItem key={idx}>
                         <LogoImage logoUrl={ logoImgUrl }/>
                     </GridItem>)
             }

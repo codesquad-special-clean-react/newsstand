@@ -2,14 +2,11 @@ import { useContext, useState, useEffect } from "react"
 import { NewsDataContext } from "../context/NewsDataContext"
 
 const useNewsData = (pageSize = 5) => {
-    const { newsData, subscribedPressList } = useContext(NewsDataContext);
-    const [presses, setPress] = useState([]);
-    const [newsList, setNewsList] = useState([]);
-    const [thumbNews, setThumbNews] = useState({ imageUrl : '', text : '' });
+    const { newsData, subscribedNewsData } = useContext(NewsDataContext);
 
     const [page, setPage] = useState(0);
     const [maximumPage, setMaximumPage] = useState(0);
-    const [selectedPressIdx, selectPressIdx] = useState(0);
+    const [selectedPressIdx, selectPressIdx] = useState(null);
 
     const getItemsForPage = (items) => {
         const startIndex = page * pageSize;
@@ -17,36 +14,23 @@ const useNewsData = (pageSize = 5) => {
         return items.slice(startIndex, endIndex);
     }
 
-    const getNewsOfPress = (press) => {
-        return newsData.filter(({ company }) => company === press);
-    }
-
     useEffect(() => {
         setMaximumPage(Math.ceil(newsData.length / pageSize) - 1);
-
-        setPress(getItemsForPage(newsData.map(({ company }) => company)));
     }, [newsData, pageSize]);
-
+    
     useEffect(() => {
-        if(newsData.length === 0) return;
-        const pressName = presses[selectedPressIdx];
-        const [news] = getNewsOfPress(pressName);
-
-        if(news) {
-            setNewsList(news.newslist);
-            setThumbNews(news.thumbnews);
-        }
-        
-    }, [selectedPressIdx, presses]);
+        if(subscribedNewsData.length === 0 ) return;
+        selectPressIdx(subscribedNewsData[0].id);
+    }, [subscribedNewsData]);
 
     const pageUp = setPage.bind(null, page === maximumPage ? page : page + 1);
     const pageDown = setPage.bind(null, page === 0 ? 0 : page - 1);
 
     const isSubscribed = (pressId) => {
-        return subscribedPressList.filter(({id}) => id === pressId).length === 1;
+        return subscribedNewsData.filter(({id}) => id === pressId).length === 1;
     } 
 
-    return { newsData, presses, pageUp, pageDown, selectedPressIdx, selectPressIdx, thumbNews, newsList, isSubscribed, subscribedPressList };
+return { newsData, pageUp, pageDown, selectedPressIdx, selectPressIdx, isSubscribed, subscribedNewsData };
 }
 
 export default useNewsData;
