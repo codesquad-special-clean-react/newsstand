@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from "react";
-import { RouterContext } from "../context/RouterContext"
+import { RouterContext, history } from "../context/RouterContext"
 import { routes } from "../router/routes";
 
 const useRoute = () => {
@@ -23,7 +23,7 @@ const useRoute = () => {
         selectMyNews(isMyNewsListSelected || isMyNewsCardSelected);
     }, [isMyNewsListSelected, isMyNewsCardSelected]);
 
-    return { route, setRoute, isMyNewsListSelected, isMyNewsCardSelected, isPressSelected, isMyNewsSelected };
+    return { route, setRoute, isMyNewsListSelected, isMyNewsCardSelected, isPressSelected, isMyNewsSelected, history };
 };
 
 export default useRoute;
