@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 
-const NewsShowingViewWrapper = styled.section`
-  width: calc(100% - 163px);
+const NewsShowingViewWrapper = styled.li`
+  box-sizing: border-box;
+  width: 1050px;
   height: 100%;
   padding: 17px 24px;
   overflow: hidden;
   background-color: #f7f9fa;
   border: 1px solid #dae1e6;
+  display: flex;
+  flex-direction: column;
 `;
 
 const NewsPublisherTitle = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   height: 20px;
 `;
 
@@ -48,4 +52,11 @@ const NewsRow = styled.li`
   white-space: nowrap;
 `;
 
-export { NewsShowingViewWrapper, NewsPublisherTitle, NewsShowingView, NewsThumb, NewsList, NewsRow };
+const UnSubscribeBtn = styled.button`
+  background: none;
+  border: none;
+  line-height: 2;
+  cursor: pointer;
+`;
+
+export { NewsShowingViewWrapper, NewsPublisherTitle, NewsShowingView, NewsThumb, NewsList, NewsRow, UnSubscribeBtn };

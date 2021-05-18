@@ -2,9 +2,7 @@ import React from 'react';
 import { Router, routes } from '@router';
 import Header from './Header/Header';
 import Content from './Content/Content';
-import { LOADING } from '@utils/constant';
-
-const FallBack = <div>{LOADING}</div>;
+import { FallBack } from '@utils/constant';
 
 const NewsStand = () => {
   return (

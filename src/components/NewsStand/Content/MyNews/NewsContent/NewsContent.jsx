@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import {
   NewsList,
   NewsPublisherTitle,
@@ -6,32 +6,28 @@ import {
   NewsShowingView,
   NewsShowingViewWrapper,
   NewsThumb,
+  UnSubscribeBtn,
 } from './NewsContent.style';
-import { myTargetNewsSelector } from '@recoil/news';
-import { useRecoilValue } from 'recoil';
-import { HistoryContext } from '@router';
+import { useSubscribe } from '@hooks';
+import { currentNewsSelector, mySubscribeNewsCompanyListSelector } from '@recoilStore/news';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
-const NewsContent = () => {
-  const { setCurrentPath } = useContext(HistoryContext);
-  const newsInfo = useRecoilValue(myTargetNewsSelector);
+const NewsContent = ({ id, company, thumbnews: { imageUrl, text }, newslist }) => {
+  const { onUnSubscribe } = useSubscribe();
+  const setMyTargetNews = useSetRecoilState(currentNewsSelector);
+  const companyNameList = useRecoilValue(mySubscribeNewsCompanyListSelector);
 
-  useEffect(() => {
-    if (newsInfo.length === 0) {
-      const state = {
-        to: '/newscompany',
-      };
-      window.history.pushState(state, '', state.to);
-      setCurrentPath(state.to);
-    }
-  }, [newsInfo]);
-
-  if (newsInfo.length === 0) return null;
-
-  const {
-    company,
-    thumbnews: { imageUrl, text },
-    newslist,
-  } = newsInfo[0];
+  const handleUnSubscribe = useCallback(
+    ({
+      target: {
+        dataset: { id },
+      },
+    }) => {
+      onUnSubscribe(id);
+      setMyTargetNews(companyNameList[0]?.id);
+    },
+    [id]
+  );
 
   const NewsTitles = newslist.map((title, idx) => <NewsRow key={idx}>{title}</NewsRow>);
 
@@ -39,6 +35,9 @@ const NewsContent = () => {
     <NewsShowingViewWrapper>
       <NewsPublisherTitle>
         <span>{company}</span>
+        <UnSubscribeBtn data-id={id} onClick={handleUnSubscribe}>
+          X
+        </UnSubscribeBtn>
       </NewsPublisherTitle>
       <NewsShowingView>
         <NewsThumb>
@@ -51,4 +50,7 @@ const NewsContent = () => {
   );
 };
 
-export default NewsContent;
+const NewsContentMemo = React.memo(NewsContent, (prev, next) => {
+  return prev.id === next.id;
+});
+export default NewsContentMemo;

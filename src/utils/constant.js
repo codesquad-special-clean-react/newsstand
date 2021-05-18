@@ -1,4 +1,15 @@
-export const LOADING = 'Loading...';
+import React from 'react';
+
+const LOADING = 'Loading...';
+export const FallBack = <div>{LOADING}</div>;
+
+export const COUNT_PER_PAGE = 15;
+export const CAROUSEL_WIDTH = 1050;
+export const TIMEOUT = 5000;
+export const PAGE_DIRECTION = {
+  prev: 1,
+  next: -1,
+};
 
 export const MODE = {
   LIST: 'LIST',

@@ -10,6 +10,7 @@ export const newsFetcher = {
       return response.json();
     } catch (err) {
       console.error('newsFetcher get Error', err);
+      return false;
     }
   },
 };

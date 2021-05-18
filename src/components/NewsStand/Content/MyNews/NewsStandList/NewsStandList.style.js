@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const NewsStandNav = styled.nav`
   height: 100%;
-  width: 163px;
+  width: 150px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -13,7 +13,7 @@ const NewsStandNav = styled.nav`
 const NewsStandListWrap = styled.ul`
   width: 100%;
   height: 100%;
-  padding: 7px 14px 3px;
+  padding: 7px 5px 3px;
   overflow-y: scroll;
 `;
 

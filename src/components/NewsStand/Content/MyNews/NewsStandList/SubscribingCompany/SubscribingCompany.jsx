@@ -1,5 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled, { css } from 'styled-components';
+
+const SubscribingCompany = ({ id, company, currentNews, setCurrentNews }) => {
+  const isContentNewsCompany = id === currentNews;
+  const changeCurrentNews = useCallback(({ target: { id } }) => setCurrentNews(id), [id, currentNews]);
+  return (
+    <NewsPublisher id={id} isContentNewsCompany={isContentNewsCompany} onClick={changeCurrentNews}>
+      {company}
+    </NewsPublisher>
+  );
+};
+
+export default React.memo(SubscribingCompany, (prev, next) => {
+  return prev.currentNews === next.currentNews;
+});
 
 const NewsPublisher = styled.li`
   box-sizing: border-box;
@@ -26,17 +40,3 @@ const NewsPublisher = styled.li`
     text-decoration: underline;
   }
 `;
-
-const SubscribingCompany = ({ id, company, myTargetNews, setMyTargetNews }) => {
-  const isContentNewsCompany = id === myTargetNews;
-  const handleClick = () => {
-    setMyTargetNews(id);
-  };
-  return (
-    <NewsPublisher isContentNewsCompany={isContentNewsCompany} onClick={handleClick}>
-      {company}
-    </NewsPublisher>
-  );
-};
-
-export default SubscribingCompany;
