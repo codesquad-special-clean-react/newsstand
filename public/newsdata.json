@@ -1,0 +1,167 @@
+[{
+    "company": "경향신문",
+    "id":1,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd14372435.png",
+    "newslist": [
+        "유승민 “문재인 대통령도 특검 수사 대상”",
+        "홍준표 “난 사시미 테러도 당했다···주먹 따윈”",
+        "심상정 “문재인정부 A학점, 하지만···”",
+        "양주 가스폭발···종이에 '미안하다, 화장해달라’",
+        "LG그룹, 검찰 전격 압수수색에 당혹"
+    ],
+    "thumbnews" : {
+        "imageUrl" : "https://s.pstatic.net/static/newsstand/2018/0509/article_img/9001/181406_001.jpg",
+        "text" : "건강악화 김성태 ‘119 출동‘···“특검 수용하라” 병원행 거부"
+    }
+},
+{
+    "company": "kbs",
+    "id":2,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd173124306.png",
+    "newslist": [
+        "한중일 정상회담…'판문점 선언 지지’ 특별 성명",
+        "[영상] 정신질환자 구급차 훔쳐 달리다…여고생 2명 부상",
+        "경공모, 김경수 의원에 2700만 원 후원 추정”…'불법성’ 조사",
+        "이명희 폭언이 '제언·의견전달’ 이라니…해명자료에 분노",
+        "대형마트 의무휴업’ 찬성  73%…더 늘리는 건 '반대"
+    ],
+    "thumbnews" : {
+        "imageUrl" : "https://s.pstatic.net/static/newsstand/2018/0509/article_img/9044/175859_001.jpg",
+        "text" : "美 폼페이오·北 김영철 회동…'평화 구축 협력'"
+    }
+},
+{
+    "company": "조선일보",
+    "id":3,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd162718792.png",
+    "newslist": [
+        "[속보] 文대통령·리커창 北 비핵화하면 체제 보장해줘야",
+        "개그맨 출신 기자' 이재포, 여배우 명예훼손으로 법정구속",
+        "고독한 미식가 여기서 찍었대...보광동 돼지갈비집 미어터졌다",
+        "드루킹 특검 협상결렬… 野 與, 애초 특검 수용 뜻 없었다",
+        "혜경궁 김씨 누구입니까'… 文지지자들 이재명 후보 공격",
+        "박 前대통령, 병원 이송 3시간 만에 구치소로 돌아가"
+    ],
+    "thumbnews" : {
+        "imageUrl" : "https://s.pstatic.net/static/newsstand/2018/0509/article_img/9007/181109_001.jpg",
+        "text" : "金방중→이란 제재→폼페이오 방북…숨가쁜 核밀당"
+    }
+},
+{
+    "company": "mbc",
+    "id":4,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd17324940.png",
+    "newslist": [
+        "Lorem ipsum dolor sit amet, consectetur adipisicin",
+        "ipsum dolor sit amet, consectetur adipisicin",
+        "dolor sit amet, consectetur adipisicin",
+        "amet, consectetur adipisicin"
+    ],
+    "thumbnews" : {
+        "imageUrl" : "https://s.pstatic.net/static/newsstand/2018/0509/article_img/9011/180212_001.jpg",
+        "text" : "한·일·중 정상회담…'비핵화 명시한 판문점선언 지지'"
+    }
+},
+{
+    "company": "노컷뉴스",
+    "id":5,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd143958887.png",
+    "newslist": [
+        "文 말씀이라면···새정부 1년, 존재감 잃은 여당",
+        "관세청장 한진과 유착? 지휘관 믿고 제보 주세요",
+        "5·18 당시 목욕탕 끌려가 성폭행··· 피해자 많을 것",
+        "호가 140억, 매매가 75억···'학교매매' 아시나요?",
+        "'사돈의 팔촌'까지···서울예대 총장 해임 가능할까",
+        "뉴스 편집서 손 떼는 네이버, 조작 논란서 벗어날까"
+    ],
+    "thumbnews" : {
+        "imageUrl" : "https://s.pstatic.net/static/newsstand/2018/0510/article_img/9028/104957_001.jpg",
+        "text" : "[서울포럼 2018] 서울시장 후보 3인, 교육정책 방향은"
+    }
+},
+{
+    "company": "블로터",
+    "id":6,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2018/0316/nsd175350622.png",
+    "newslist": [
+        "[써보니] LG 'G7 씽큐’, V를 닮은 G시리즈의 후예",
+        "구글, 사람처럼 전화 통화하는 인공지능 공개",
+        "한 웹디자이너의 죽음, '과로자살'은 사회적 문제다",
+        "[BB] '알파고' 딥마인드, '길찾기 AI' 발표",
+        "'블록체인 졸업장’으로 학력위조 방지한다",
+        "코인원, 리플과 해외송금 솔루션 '엑스커런트' 계약"
+    ],
+    "thumbnews" : {
+        "imageUrl" :"https://s.pstatic.net/static/newsstand/2018/0510/article_img/9054/100205_001.jpg",
+        "text" : "[서울포럼 2018] 서울시장 후보 3인, 교육정책 방향은"
+    }
+},
+{
+    "company": "서울경제",
+    "id":7,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd145718601.png",
+    "newslist": [
+        "민주당 지지율 올랐는데…文대통령 웃지못하는 이유",
+        "MBC 예능 '세월호 화면' 논란에 최승호 사장 결국",
+        "사고 났다하면 불타는 테슬라…배터리 발화가 원인?",
+        "부모님 생활비 안주는 자녀 많다더니 이럴 줄은",
+        "오피스텔까지 씨말랐다…자고나면 집값 뛴다는 그곳",
+        "드루킹, 대선 전부터 댓글조작…드디어 밝혀진 진실"
+    ],
+    "thumbnews" : {
+        "imageUrl" :"https://s.pstatic.net/static/newsstand/2018/0510/article_img/9018/112604_001.jpg",
+        "text" : "[서울포럼 2018] 서울시장 후보 3인, 교육정책 방향은"
+    }
+},
+{
+    "company": "JTBC",
+    "id":8,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd173111263.png",
+    "newslist": [
+        "트럼프 북 억류 미국인 3명 석방…건강 양호",
+        "[밀착카메라] 무단횡단 사망 무려…'위험한 지름길",
+        "북미 회담, 5월 말~6월 초 싱가포르 개최 유력",
+        "가족들 오열, 곳곳 탱크…38년 만에 공개된 5·18 영상",
+        "이명희 출금…의혹 부인 해명서에 직원들 어이없다",
+        "'미스티' 촬영 전 안나경 앵커 도움 받아…밥 산다 했는데"
+    ],
+    "thumbnews" : {
+        "imageUrl" :"https://s.pstatic.net/static/newsstand/2018/0510/article_img/9110/110500_001.jpg",
+        "text" : "억류자 석방으로 '대화모드'…북미 기류 급진전"
+    }
+},
+{
+    "company": "시사인",
+    "id":9,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd151929775.png",
+    "newslist": [
+        "'고난의 행군’ 끝에 시장으로 다가갔네",
+        "은행 없는 북한식 핀테크",
+        "남북 정상회담의 진짜 주인공, '촛불 민심’",
+        "대입 개편, '교육 갈등 조정자’의 첫걸음",
+        "가끔씩 찾아오는 경이의 순간",
+        "시대를 앞서 간 평화주의자들"
+    ],
+    "thumbnews" : {
+        "imageUrl" :"https://s.pstatic.net/static/newsstand/2018/0509/article_img/9052/150500_001.jpg",
+        "text" : "시장경제 이식 중인 북한식 경제관리"
+    }
+},
+{
+    "company": "newsis",
+    "id":10,
+    "logoImgUrl": "https://s.pstatic.net/static/newsstand/up/2017/0424/nsd14449981.png",
+    "newslist": [
+        "北억류 미국인 3명 석방, 트럼프·김정은 윈윈전략",
+        "文정부1년,주택정책 '절반의 성공'…주거복지 합격",
+        "세월호, 4년여만에 바로 세워진다…직립작업 시작",
+        "매티스 북미회담 결실 맺을 낙관적 이유 있다",
+        "NYT 트럼프 노벨평화상 수상, 가능성 있어",
+        "'홍대 누드모델 도촬' 피해자, 워마드 고소"
+    ],
+    "thumbnews" : {
+        "imageUrl" : "https://s.pstatic.net/static/newsstand/2018/0510/article_img/9078/112604_001.jpg",
+        "text" : "북미정상회담 싱가포르 개최 굳어지나"
+    }
+}
+]
