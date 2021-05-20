@@ -1,26 +1,24 @@
-import { useContext, useState } from "react";
-import { NewsDataContext } from "../context/NewsDataContext";
+import {useState} from 'react';
+import {useRecoilState} from 'recoil';
+import subscribedIdsAtom from '../recoil/subscribe';
 
 const usePress = () => {
-    const { newsData, subscribedNewsData, subscribeNewsData } = useContext(NewsDataContext);
-    const [hoveredPressOrders, setHoveredPressOrder] = useState(null);
+  const [subscribedNewsIds, subscribeNewsWithId] = useRecoilState(subscribedIdsAtom);
 
-    const handleSubscribe = (pressId) => {
-        const [isSubscribed] = subscribedNewsData.filter(({id}) => id === pressId);
-        if(isSubscribed) {
-            subscribeNewsData(subscribedNewsData.filter(({id}) => id !== pressId));
-            return;
-        }
 
-        const [subscribingPress] = newsData.filter(({id}) => id === pressId);
-        if(!subscribingPress){
-            return;
-        }
+  const [hoveredPressOrders, setHoveredPressOrder] = useState(null);
 
-        subscribeNewsData([...subscribedNewsData, subscribingPress]);
+  const handleSubscribe = (pressId) => {
+    const isSubscribed = subscribedNewsIds.includes(pressId);
+    if (isSubscribed) {
+      subscribeNewsWithId(subscribedNewsIds.filter((id) => id !== pressId));
+      return;
     }
-    
-    return { hoveredPressOrders, setHoveredPressOrder, handleSubscribe };
+
+    subscribeNewsWithId([...subscribedNewsIds, pressId]);
+  };
+
+  return {hoveredPressOrders, setHoveredPressOrder, handleSubscribe};
 };
 
 export default usePress;

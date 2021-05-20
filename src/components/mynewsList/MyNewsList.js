@@ -5,15 +5,18 @@ import NewsContainer from './NewsContainer';
 import PressList from './PressList';
 
 const MyNewsList = () => {
-    const { subscribedNewsData, selectedPressIdx, selectPressIdx } = useNewsData();
-    if(!subscribedNewsData.length) return <NoSubscribed/>
+  const {subscribedNewsList, selectedPressIdx, selectPressIdx} = useNewsData();
+  if (!subscribedNewsList.length) return <NoSubscribed/>;
 
-    return (
-        <Styled.MyNewsListContainer>
-            <PressList subscribedNewsData={subscribedNewsData} selectedPressIdx={selectedPressIdx} selectPressIdx={selectPressIdx}/>
-            <NewsContainer subscribedNewsData={subscribedNewsData} selectedPressIdx={selectedPressIdx}/>
-        </Styled.MyNewsListContainer>
-    );
+  return (
+    <Styled.MyNewsListContainer>
+      <PressList
+        subscribedNewsList={subscribedNewsList}
+        selectedPressIdx={selectedPressIdx}
+        selectPressIdx={selectPressIdx}/>
+      <NewsContainer subscribedNewsList={subscribedNewsList} selectedPressIdx={selectedPressIdx}/>
+    </Styled.MyNewsListContainer>
+  );
 };
 
 export default MyNewsList;

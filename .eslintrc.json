@@ -18,7 +18,10 @@
         "react"
     ],
     "rules": {
-        "linebreak-style": ["error", "windows"],
-        "react/react-in-jsx-scope": 0
+        "linebreak-style": 0,
+        "react/react-in-jsx-scope": 0,
+        "max-len": ["error", {"code": 120}],
+        "react/prop-types": 0,
+        "require-jsdoc": 0
     }
 }

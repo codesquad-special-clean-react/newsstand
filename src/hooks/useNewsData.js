@@ -1,36 +1,40 @@
-import { useContext, useState, useEffect } from "react"
-import { NewsDataContext } from "../context/NewsDataContext"
+import {useState, useEffect} from 'react';
+import {useRecoilValue} from 'recoil';
+import newsListAtom from '../recoil/newsList';
+import subscribedIdsAtom, {withNewsData} from '../recoil/subscribe';
 
 const useNewsData = (pageSize = 5) => {
-    const { newsData, subscribedNewsData } = useContext(NewsDataContext);
+  const newsList = useRecoilValue(newsListAtom);
+  const subscribedNewsList = useRecoilValue(withNewsData);
+  const subscribedNewsIds = useRecoilValue(subscribedIdsAtom);
 
-    const [page, setPage] = useState(0);
-    const [maximumPage, setMaximumPage] = useState(0);
-    const [selectedPressIdx, selectPressIdx] = useState(null);
+  const [page, setPage] = useState(0);
+  const [maximumPage, setMaximumPage] = useState(0);
+  const [selectedPressIdx, selectPressIdx] = useState(0);
 
-    const getItemsForPage = (items) => {
-        const startIndex = page * pageSize;
-        const endIndex = startIndex + pageSize;
-        return items.slice(startIndex, endIndex);
-    }
+  const getItemsForPage = (items) => {
+    const startIndex = page * pageSize;
+    const endIndex = startIndex + pageSize;
+    return items.slice(startIndex, endIndex);
+  };
 
-    useEffect(() => {
-        setMaximumPage(Math.ceil(newsData.length / pageSize) - 1);
-    }, [newsData, pageSize]);
-    
-    useEffect(() => {
-        if(subscribedNewsData.length === 0 ) return;
-        selectPressIdx(subscribedNewsData[0].id);
-    }, [subscribedNewsData]);
+  useEffect(() => {
+    setMaximumPage(Math.ceil(newsList.length / pageSize) - 1);
+  }, [newsList, pageSize]);
 
-    const pageUp = setPage.bind(null, page === maximumPage ? page : page + 1);
-    const pageDown = setPage.bind(null, page === 0 ? 0 : page - 1);
+  useEffect(() => {
+    if (subscribedNewsList.length === 0 ) return;
+    selectPressIdx(subscribedNewsList[0].id);
+  }, [subscribedNewsList]);
 
-    const isSubscribed = (pressId) => {
-        return subscribedNewsData.filter(({id}) => id === pressId).length === 1;
-    } 
+  const pageUp = setPage.bind(null, page === maximumPage ? page : page + 1);
+  const pageDown = setPage.bind(null, page === 0 ? 0 : page - 1);
 
-return { newsData, pageUp, pageDown, selectedPressIdx, selectPressIdx, isSubscribed, subscribedNewsData };
-}
+  const isSubscribed = (pressId) => {
+    return subscribedNewsIds.includes(pressId);
+  };
+
+  return {newsList, pageUp, pageDown, selectedPressIdx, selectPressIdx, isSubscribed, subscribedNewsList};
+};
 
 export default useNewsData;

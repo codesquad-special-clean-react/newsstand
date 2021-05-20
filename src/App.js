@@ -1,21 +1,32 @@
+import {useEffect} from 'react';
+import {useSetRecoilState} from 'recoil';
 import * as Styled from './App.style';
 import PageNotFound from './components/error/PageNotFound';
 import MyNewsCard from './components/mynewsCard/MyNewsCard';
 import MyNewsList from './components/mynewsList/MyNewsList';
 import NavigationBar from './components/navigation/NavigationBar';
 import Press from './components/press/Press';
-import { NewsDataContextProvider } from './context/NewsDataContext';
-import { Router } from './router/components';
+import newsListAtom from './recoil/newsList';
+import {Router} from './router/components';
 import Route from './router/components/Route';
 import Switch from './router/components/Switch';
-import { routes } from './router/routes';
+import {routes} from './router/routes';
+import {requestNewsData} from './utils/api';
 
 function App() {
-  const { list, card } = routes.mynews; 
-  const { total : press } = routes.press;
+  const {list, card} = routes.mynews;
+  const {total: press} = routes.press;
+  const setNewsList = useSetRecoilState(newsListAtom);
 
-  return <Styled.AppContainer>
-    <NewsDataContextProvider>
+  useEffect(()=>{
+    (async () => {
+      const data = await requestNewsData();
+      setNewsList(data);
+    })();
+  }, []);
+
+  return (
+    <Styled.AppContainer>
       <Router>
         <NavigationBar/>
         <Switch>
@@ -42,8 +53,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </NewsDataContextProvider>
-  </Styled.AppContainer>
+    </Styled.AppContainer>
+  );
 }
 
 export default App;

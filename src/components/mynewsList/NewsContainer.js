@@ -1,21 +1,21 @@
 import * as Styled from './NewsContainer.style';
-import NewsList from "./NewsList"
-import ThumbNews from "./ThumbNews"
+import NewsList from './NewsList';
+import ThumbNews from './ThumbNews';
 
-const NewsContainer = ({ subscribedNewsData, selectedPressIdx}) => {
-    const [selectedItem] = subscribedNewsData.filter(({ id }) => id === selectedPressIdx);
+const NewsContainer = ({subscribedNewsList, selectedPressIdx}) => {
+  const [selectedItem] = subscribedNewsList.filter(({id}) => id === selectedPressIdx);
 
-    return (
-        <Styled.NewsContainer>
-            {
-                selectedItem && 
+  return (
+    <Styled.NewsContainer>
+      {
+        selectedItem &&
                 <>
-                    <ThumbNews thumbNews={selectedItem.thumbnews}/>
-                    <NewsList newsList={selectedItem.newslist}/>
+                  <ThumbNews thumbNews={selectedItem.thumbnews}/>
+                  <NewsList newsList={selectedItem.newslist}/>
                 </>
-            }
-        </Styled.NewsContainer>
-    );
+      }
+    </Styled.NewsContainer>
+  );
 };
 
 export default NewsContainer;
