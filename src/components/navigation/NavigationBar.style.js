@@ -36,7 +36,6 @@ const Divider = styled.div`
 `;
 
 const CardTypes = styled.div`
-    position: absolute;
     right: 200px;
 `
 
