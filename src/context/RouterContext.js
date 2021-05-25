@@ -1,23 +1,29 @@
-import { createContext } from "react";
-import { useState } from "react/cjs/react.development";
-import PageNotFound from "../components/error/PageNotFound";
-import usePageError from "../hooks/usePageError";
-import { createHistory } from "../router/history";
-import { formatLocationToRoute } from "../router/utils";
+import {createContext, useEffect, useState} from 'react';
+import {createHistory} from '../router/history';
+import {formatLocationToRoute} from '../router/utils';
 
 const history = createHistory();
 
-const initialState = { route: formatLocationToRoute(history.location) };
+const defaultValue = {
+  route: '/',
+  setRoute: () => {},
+};
 
-const RouterContext = createContext(initialState);
+const RouterContext = createContext(defaultValue);
 
-const RouterContextProvider = ({ children }) => {
-    const [route, setRoute] = useState(formatLocationToRoute(history.location));
-    const [isPageNotFound] = usePageError(route);
-    
-    return <RouterContext.Provider value={{ route }}>
-        { isPageNotFound ? <PageNotFound/> : children }
-    </RouterContext.Provider>
-}
+const RouterContextProvider = ({children}) => {
+  const [route, setRoute] = useState(formatLocationToRoute(history.location));
 
-export { history, RouterContext, RouterContextProvider };
+  useEffect(() => {
+    window.addEventListener('popstate', (event) => {
+      event.preventDefault();
+      setRoute(formatLocationToRoute({pathname: event.state.path}));
+    });
+  }, []);
+
+  return <RouterContext.Provider value={{route, setRoute}}>
+    {children}
+  </RouterContext.Provider>;
+};
+
+export {history, RouterContext, RouterContextProvider};

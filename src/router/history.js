@@ -8,7 +8,6 @@ class History{
 
     push(to) {
         this.history.pushState({ path: to }, 'News stand', to);
-        this.location.pathname = to;
     }
 }
 
